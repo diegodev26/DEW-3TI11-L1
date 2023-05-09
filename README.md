@@ -98,10 +98,12 @@ Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una ser
 ```html
 ...
 <body>
-	<h1>Indice de Loggers</h1>
-	<a href="log0.html">Enlace al Logger version 0</a>
-	<a href="log1.html">Enlace al Logger version 1</a>
-	<a href="log2.html">Enlace al Logger version 2</a>
+	<h1>Lista de loggers</h1>
+	<ol>
+	<li><a href="log0.html"> Logger0</a></br></li>
+	<li><a href="log1.html"> Logger1</a></br></li>
+	<li><a href="log2.html"> Logger2</a></br></li>
+	</ol>
 </body>
 ...
 ```
