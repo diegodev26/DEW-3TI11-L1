@@ -92,7 +92,7 @@ Tras la explicación de la sesión el día 26/04/2023 por parte del profesor, se
 
 ### Desarrollo
 ---
-**Formularios**
+**- Formularios**
 
 Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, cada uno relacionado con un servlet (log) concreto.
 ```html
@@ -136,7 +136,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	}
  ```
 
-**Especificaciones de servlets, logger1 y logger2**
+**- Especificaciones de servlets, logger1 y logger2**
 
 Los nombres de los servlets siguen la misma forma que los nombres de los formularios, loggern, siendo n el numero de log al que hacen referencia. Los servlets 
 relativos a log1 y log2 (logger1 y logger2 respectivamente), pese a tener una estructura similar, tienen cambios significativos respecto al log0. Estos cambios
@@ -159,7 +159,7 @@ transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el códi
   ...
   ```
   
-**Salidas**
+**- Salidas**
 
 La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
 visibles a la hora de observar la salida de cada uno de ellos.
@@ -178,7 +178,7 @@ Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero re
 2023-05-09T19:18:00.259516 null 12345678A, User, Resu Resu 172.23.2.245 logger2 /DEW_TRABAJO/logger2 POST
 ```
 
-**Curl**
+**- Curl**
 
 "Falta información"
 
