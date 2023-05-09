@@ -6,7 +6,7 @@
 ---
 La reunión se realizó en persona el día miércoles **19/04/2023** en referencia a la sesión 1 de laboratorio.
 
-El grupo 3ti11_g06 está compuesto por:
+El grupo **3ti11_g06** está compuesto por:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
 - Jorge Gandara Sanchis
