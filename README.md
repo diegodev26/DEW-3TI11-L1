@@ -131,14 +131,12 @@ En primer lugar, nos fijremos en logger1, el servlet relativo a log2. Si nos fij
 
 Por otro lado, en el servlet relativo a log2, también se especifica una ubicación pero esta vez se define desde el ficherp web.xml (facilitado en las 
 transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el código respecto del anterior. 
-`
-...
+`...
   <context-param>
         <param-name>logPath</param-name>
         <param-value>/home/user/Escritorio/log-NOL-dew.log</param-value>
   </context-param>
-  ...
-  `
+  ...`
 
 **Salidas **
 La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
