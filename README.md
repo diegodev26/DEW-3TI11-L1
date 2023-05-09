@@ -131,8 +131,8 @@ PrintWriter pw2 = new PrintWriter(new FileOutputStream(new File("/home/user/Escr
 ```
 Por otro lado, en el servlet relativo a log2, también se especifica una ubicación pero esta vez se define desde el ficherp web.xml (facilitado en las 
 transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el código respecto del anterior. 
-```java
-...
+```xml
+  ...
   <context-param>
         <param-name>logPath</param-name>
         <param-value>/home/user/Escritorio/log-NOL-dew.log</param-value>
