@@ -76,7 +76,7 @@ Exposición de los temas reapartidos en la **reunión 1** y posterior evaluació
 
 ### Preámbulo
 ----
-Esta reunión se realizo online a través de Discord el día jueves **27/04/2023** en referencia a la sesión 2 de laboratorio.
+Esta reunión se realizo online a través de Discord el día jueves **04/05/2023** en referencia a la sesión 2 de laboratorio.
 
 El grupo **3ti11_g06** está compuesto por:
 - Pablo Cerdá Puche
