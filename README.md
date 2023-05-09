@@ -3,7 +3,7 @@
 ## Acta de Reunión nº1
 
 ### Preámbulo
----
+
 La reunión se realizó en persona el día miércoles **19/04/2023**
 
 El grupo está compuesto por:
