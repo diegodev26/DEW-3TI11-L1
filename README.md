@@ -180,7 +180,30 @@ Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero re
 
 **- Curl**
 
-"Falta información"
+Para la ejecución de las órdenes curl, se ha creado un script llamado OrdenesCurl.sh. Este script contiene órdenes de consulta, adición y eliminación. 
+
+
+```sh
+key=$(curl -s --data '{"dni":"111111111","password":"654321"}' -X POST -H "content-type: application/json" http://democe.dsic.upv.es:9090/CentroEducativo/login -c galleta -b galleta)
+
+curl -s -X GET 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos?key='$key -H "accept: application/json" -c galleta -b galleta
+
+curl -s --data '{"apellidos": "lopez", "dni": "111111112", "nombre": "pepe", "password": "654321"}' -X POST -H "content-type: application/json" 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos?key='$key  -c galleta -b galleta
+
+curl -s --data '{"dni":"111111112"}' -X DELETE -H "content-type: application/json" 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos/111111112?key='$key  -c galleta -b galleta
+```
+
+Para el desarrollo de las órdenes se ha creado una variable de entorno llamada **key**, la cual sirve comom identificador de la clave de sesión. Esta variable se utiliza para completar la URL de las instrucciones. 
+Para procesar en el cliente en formato json, se añade accept:application/json. además, se añade "-b galleta -c galleta" para guardar el fichero de cookies. 
+
+La primera orden del script, de consulta, muestra por pantalla todos los alumnos pertenecientes a CentroEducativo. 
+*salida de mostrar alumnos
+
+La segunda orden del script añade un nuevo alumno de dni "111111112", nombre "pepe", apellido "lopez" y contraseña "654321". Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. 
+*salida de mostrar alumnos despues de añadir
+
+La tercera orden del scrip elimina un alumno de CentroEducativo a partir de su dni. Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. En este ejemplo, se ha eliminado el alumno añadido en la orden anterior. 
+*salida de mostrar alumnos despues de eliminar
 
 ### En referencia al profesor
 ---
