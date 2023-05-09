@@ -193,17 +193,26 @@ curl -s --data '{"apellidos": "lopez", "dni": "111111112", "nombre": "pepe", "pa
 curl -s --data '{"dni":"111111112"}' -X DELETE -H "content-type: application/json" 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos/111111112?key='$key  -c galleta -b galleta
 ```
 
-Para el desarrollo de las órdenes se ha creado una variable de entorno llamada **key**, la cual sirve comom identificador de la clave de sesión. Esta variable se utiliza para completar la URL de las instrucciones. 
+Para el desarrollo de las órdenes se ha creado una variable de entorno llamada **key**, la cual sirve para guardar la clave de sesión. Esta variable se utiliza para completar la URL de las instrucciones. 
 Para procesar en el cliente en formato json, se añade accept:application/json. además, se añade "-b galleta -c galleta" para guardar el fichero de cookies. 
 
-La primera orden del script, de consulta, muestra por pantalla todos los alumnos pertenecientes a CentroEducativo. 
-*salida de mostrar alumnos
+La **primera orden** curl del script, de consulta, muestra por pantalla una lista con todos los objetos json alumnos, con sus propiedades(apellidos,dni,nombre,password),pertenecientes a CentroEducativo.
+Salida:
+```text
+[{"dni":"12345678W","nombre":"Pepe","apellidos":"Garcia Sanchez"},{"dni":"23456387R","nombre":"Maria","apellidos":"Fernandez Gómez"},{"dni":"34567891F","nombre":"Miguel","apellidos":"Hernandez Llopis"},{"dni":"93847525G","nombre":"Laura","apellidos":"Benitez Torres"},{"dni":"37264096W","nombre":"Minerva","apellidos":"Alonso Pérez"}]
+```
 
-La segunda orden del script añade un nuevo alumno de dni "111111112", nombre "pepe", apellido "lopez" y contraseña "654321". Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. 
-*salida de mostrar alumnos despues de añadir
+La **segunda orden** curl del script añade un nuevo alumno de dni "111111112", nombre "pepe", apellido "lopez" y contraseña "654321".Nos devuelve la ejecución de esta orden si todo ha ido bien un **OK**.Si tras la ejecución de esta orden, ejecutamos la primera orden GET para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. 
+Salida:
+```text
+[{"dni":"12345678W","nombre":"Pepe","apellidos":"Garcia Sanchez"},{"dni":"23456387R","nombre":"Maria","apellidos":"Fernandez Gómez"},{"dni":"34567891F","nombre":"Miguel","apellidos":"Hernandez Llopis"},{"dni":"93847525G","nombre":"Laura","apellidos":"Benitez Torres"},{"dni":"37264096W","nombre":"Minerva","apellidos":"Alonso Pérez"},{"dni":"111111112","nombre":"pepe","apellidos":"lopez"}]
+```
 
-La tercera orden del scrip elimina un alumno de CentroEducativo a partir de su dni. Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido eliminado. En este ejemplo, se ha eliminado el alumno añadido en la orden anterior. 
-*salida de mostrar alumnos despues de eliminar
+La **tercera orden** curl del script elimina un alumno de CentroEducativo a partir de su dni. Nos devuelve la ejecución de esta orden si todo ha ido bien un **OK**.Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido eliminado. En este ejemplo, se ha eliminado el alumno añadido en la orden anterior. 
+Salida:
+```text
+[{"dni":"12345678W","nombre":"Pepe","apellidos":"Garcia Sanchez"},{"dni":"23456387R","nombre":"Maria","apellidos":"Fernandez Gómez"},{"dni":"34567891F","nombre":"Miguel","apellidos":"Hernandez Llopis"},{"dni":"93847525G","nombre":"Laura","apellidos":"Benitez Torres"},{"dni":"37264096W","nombre":"Minerva","apellidos":"Alonso Pérez"}]
+```
 
 ### En referencia al profesor
 ---
