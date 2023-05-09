@@ -1,9 +1,9 @@
 # Resumen de Actas | DEW-3TI11-L1
 
 ## Acta de Reunión nº1
-----
-### Preámbulo
 
+### Preámbulo
+----
 La reunión se realizó en persona el día miércoles **19/04/2023**
 
 El grupo está compuesto por:
@@ -17,12 +17,12 @@ El alumno firmante es:
 - José Andrés Penadés Cervelló
 
 ### Resumen
-
+----
 Tras la presentación del trabajo por parte del profesor, se realizó una reunión al salir del aula en la que los miembros del grupo especificamos la forma de trabajar
 para las próximas reuniones y el desarrollo del trabajo de prácticas. 
 
 ### Desarrollo
-
+----
 Para definir la dinámica de trabajo se creó un grupo de WhatsApp para facilitar la comunicación entre reuniones, mientras que durante las reuniones se usará Discord 
 como método de comunicación y, finalmente, para facilitar la compartición de código se inicializó un GitHub (git) como herramienta común. 
 Diego Córdoba creó un Trello con el objetivo de mantener un registro de las actividades y tareas realizadas, además de contener enlaces y documentos (como tablas, 
@@ -33,6 +33,6 @@ Tras definir el dinámica, se comentó el contenido de la próxima sesión de la
 
 
 ### En referencia al profesor
-
+----
 Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor
 
