@@ -1,1 +1,1 @@
-El archivo .war se el proyecto de logs.
+El proyecto principal que contiene los logs es el .war.
