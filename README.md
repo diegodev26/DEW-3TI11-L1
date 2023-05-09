@@ -113,7 +113,7 @@ Seguidamente, se explicará el funcionamiento de los formularios desarrollados:
 4. El tercer input, último de tipo ext, hace referencia al nombre del usuario.
 5. El cuarto y último input, de tipo submit, actua de botón para realizar el envío del formulario. 
 
-Es también observable que el formato del formulario descrito se aplica tanto para el método GET como para el método POST.:
+Es también observable que el formato del formulario descrito se aplica tanto para el método GET como para el método POST:
 ```java
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
