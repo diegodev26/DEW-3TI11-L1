@@ -58,7 +58,7 @@ Exposición de los temas reapartidos en la **reunión 1** y posterior evaluació
     > Extrae las ideas principales y las comunica de manera eficaz
 
 - Diego Córdoba Serra: *Conflictos, Gestión de Conflictos*
-    > Se apoya en un lenguaje claro y sencillo para conseguir transmitir las ideas.
+    > Emplea un lenguaje claro y sencillo para conseguir transmitir las ideas.
 
 - Jorge Gandara Sanchis: *Comunicación, Objetivos, Resolución de Problemas*
     > Se apoya en ejemplos que ayudan a visualizar los conceptos y demuestra gran capacidad de síntesis.
