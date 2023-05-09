@@ -6,7 +6,7 @@
 ---
 La reunión se realizó en persona el día miércoles **19/04/2023** en referencia a la sesión 1 de laboratorio.
 
-El grupo **3ti11_g06** está compuesto por:
+En la reunión han participado:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
 - Jorge Gandara Sanchis
@@ -42,7 +42,7 @@ Durante el desarrollo de la reunión no se ha producido ningún incidente que ne
 ---
 Esta reunión se realizo online a través de Discord el día jueves **27/04/2023** en referencia a la sesión 2 de laboratorio.
 
-El grupo **3ti11_g06** está compuesto por:
+En la reunión han participado:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
 - Jorge Gandara Sanchis
@@ -78,7 +78,7 @@ Exposición de los temas reapartidos en la **reunión 1** y posterior evaluació
 ----
 Esta reunión se realizo online a través de Discord el día jueves **04/05/2023** en referencia a la sesión 2 de laboratorio.
 
-El grupo **3ti11_g06** está compuesto por:
+En la reunión han participado:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
 - Jorge Gandara Sanchis
