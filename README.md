@@ -179,6 +179,7 @@ Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero re
 ```
 
 **Curl**
+
 "Falta información"
 
 ### En referencia al profesor
