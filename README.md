@@ -1,11 +1,9 @@
 # Resumen de Actas | DEW-3TI11-L1
-----
+
 ## Acta de Reunión nº1
 ### Preámbulo
 ------------
-
 La reunión se realizó en persona el día miércoles **19/04/2023**
-
 El grupo está compuesto por:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
