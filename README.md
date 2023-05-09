@@ -128,7 +128,7 @@ En primer lugar, nos fijremos en logger1, el servlet relativo a log2. Si nos fij
 (mediante el uso de la clase File) una ubicación, que será donde los logs se generen. 
 ```java
 PrintWriter pw2 = new PrintWriter(new FileOutputStream(new File("/home/user/Escritorio/log-NOL-dew.log"),true));
-
+```
 Por otro lado, en el servlet relativo a log2, también se especifica una ubicación pero esta vez se define desde el ficherp web.xml (facilitado en las 
 transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el código respecto del anterior. 
 ```java
@@ -138,7 +138,7 @@ transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el códi
         <param-value>/home/user/Escritorio/log-NOL-dew.log</param-value>
   </context-param>
   ...
-
+  ```
 **Salidas **
 La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
 visibles a la hora de observar la salida de cada uno de ellos.
