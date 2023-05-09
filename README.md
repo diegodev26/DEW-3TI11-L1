@@ -142,10 +142,19 @@ transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el códi
 La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
 visibles a la hora de observar la salida de cada uno de ellos.
 En cuanto al logger0, la salida de este se mostrará en la pantalla del navegador una vez enviado el respectivo formulario. 
-*salida de logger0
+```txt
+2023-05-09T19:16:17.566295 dni=12345678A&nombre=User&apellidos=Resu+Resu 12345678A, User, Resu Resu 172.23.2.245 logger0 /DEW_TRABAJO/logger0 GET
+2023-05-09T19:16:54.688158 null 12345678A, User, Resu Resu 172.23.2.245 logger0 /DEW_TRABAJO/logger0 POST
+```
 Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero relativo a la ubicación definida anteriormente. 
-*salida de logger1
-*salida de logger2
+```txt
+2023-05-09T19:17:26.359610 dni=12345678A&nombre=User&apellidos=Resu+Resu 12345678A, User, Resu Resu 172.23.2.245 logger1 /DEW_TRABAJO/logger1 GET
+2023-05-09T19:17:37.260188 null 12345678A, User, Resu Resu 172.23.2.245 logger1 /DEW_TRABAJO/logger1 POST
+```
+```txt
+2023-05-09T19:18:37.075084 dni=12345678A&nombre=User&apellidos=Resu+Resu 12345678A, User, Resu Resu 172.23.2.245 logger2 /DEW_TRABAJO/logger2 GET
+2023-05-09T19:18:00.259516 null 12345678A, User, Resu Resu 172.23.2.245 logger2 /DEW_TRABAJO/logger2 POST
+```
 
 **Curl**
 
