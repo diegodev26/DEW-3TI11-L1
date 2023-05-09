@@ -98,6 +98,7 @@ de **curl**.
 ### Desarrollo
 ---
 **Formularios**
+
 Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada 
 formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, 
 cada uno relacionado con un servlet (log) concreto. 
@@ -115,6 +116,7 @@ Es también observable que el formato del formulario descrito se aplica tanto pa
 *Código de log0.html
 
 **Especificaciones de servlets, logger1 y logger2**
+
 Los nombres de los servlets siguen la misma forma que los nombres de los formularios, loggern, siendo n el numero de log al que hacen referencia. Los servlets 
 relativos a log1 y log2 (logger1 y logger2 respectivamente), pese a tener una estructura similar, tienen cambios significativos respecto al log0. Estos cambios
 se definirán a continuación.
@@ -135,7 +137,8 @@ transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el códi
   </context-param>
   ...
   ```
-**Salidas **
+**Salidas**
+
 La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
 visibles a la hora de observar la salida de cada uno de ellos.
 En cuanto al logger0, la salida de este se mostrará en la pantalla del navegador una vez enviado el respectivo formulario. 
