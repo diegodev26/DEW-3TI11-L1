@@ -100,9 +100,15 @@ de **curl**.
 **Formularios**
 
 Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada 
-formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, 
-cada uno relacionado con un servlet (log) concreto. 
-*Código de index.html
+formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, cada uno relacionado con un servlet (log) concreto.
+```html
+<body>
+	<h1>Indice de Loggers</h1>
+	<a href="log0.html">Enlace al Logger version 0</a>
+	<a href="log1.html">Enlace al Logger version 1</a>
+	<a href="log2.html">Enlace al Logger version 2</a>
+</body>
+```
 
 Seguidamente, se exxplicará el funcionamiento de los formularios desarrollados
 El formulario adjuntado a continuación hace referencia a la ejecución del servlet log0. Se han desarrollado tres formularios diferentes, cada uno relacionado con 
@@ -113,7 +119,27 @@ El tercer input, último de tipo ext, hace referencia al nombre del usuario.
 El cuarto y último input, de tipo submit, actua de botón para realizar el envío del formulario. 
 
 Es también observable que el formato del formulario descrito se aplica tanto para el método GET como para el método POST. 
-*Código de log0.html
+```java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter pw = response.getWriter();
+		String dni = request.getParameter("dni");
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+
+		String preTituloHTML5 = "<!DOCTYPE html>\n<html>\n<head>\n"
+		 + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />";
+		 response.setContentType("text/html");
+		pw.println(preTituloHTML5);
+				pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
+	}
+ ```
+ ```java
+ protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+ ```
 
 **Especificaciones de servlets, logger1 y logger2**
 
@@ -137,6 +163,7 @@ transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el códi
   </context-param>
   ...
   ```
+  
 **Salidas**
 
 La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
