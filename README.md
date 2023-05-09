@@ -1,5 +1,43 @@
 # Resumen de Actas | DEW-3TI11-L1
 
+## Acta de Reunión nº0
+
+### Preámbulo
+---
+- La sesión se realizó en el laboratorio el día miércoles **26/04/2023**
+
+- **Grupo 3ti11_g06**
+
+- **Sesión 0** de Laboratorio DEW
+
+- Acuden a la Sesión todos los integrantes del grupo
+
+- Documento realizado y firmado por **Francisco Lozano Mellado**
+
+### Resumen
+---
+Exposición de los temas reapartidos en la **reunión 1** y posterior evaluación a cada miembro.
+
+### Desarrollo
+---
+- Cerdá Puche Pablo: *Expectativas, Brainstorming*
+    > Extrae las ideas principales y las comunica de manera eficaz
+
+- Diego Córdoba Serra: *Conflictos, Gestión de Conflictos*
+    > Se apoya en un lenguaje claro y sencillo para conseguir transmitir las ideas.
+
+- Jorge Gandara Sanchis: *Comunicación, Objetivos, Resolución de Problemas*
+    > Se apoya en ejemplos que ayudan a visualizar los conceptos y demuestra gran capacidad de síntesis.
+
+- Francisco Lozano Mellado: *Conflictos, Gestión de Conflictos*
+    > Se preocupa de que todos entiendan las ideas que expone y usa un tono más suave para facilitar la comprensión.
+
+- Jose Andrés Penadés Cervelló: *Comunicación, Objetivos, Resolución de Problemas*
+   > Demuestra habilidad para resumir la información y exponerla.
+
+-> Para la próxima sesión el equipo acuerda practicar con Eclipse la publicación en Servidor de proyectos web dinámicos
+
+
 ## Acta de Reunión nº1
 
 ### Preámbulo
