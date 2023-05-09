@@ -202,7 +202,7 @@ La primera orden del script, de consulta, muestra por pantalla todos los alumnos
 La segunda orden del script añade un nuevo alumno de dni "111111112", nombre "pepe", apellido "lopez" y contraseña "654321". Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. 
 *salida de mostrar alumnos despues de añadir
 
-La tercera orden del scrip elimina un alumno de CentroEducativo a partir de su dni. Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. En este ejemplo, se ha eliminado el alumno añadido en la orden anterior. 
+La tercera orden del scrip elimina un alumno de CentroEducativo a partir de su dni. Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido eliminado. En este ejemplo, se ha eliminado el alumno añadido en la orden anterior. 
 *salida de mostrar alumnos despues de eliminar
 
 ### En referencia al profesor
