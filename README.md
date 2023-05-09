@@ -102,12 +102,14 @@ de **curl**.
 Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada 
 formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, cada uno relacionado con un servlet (log) concreto.
 ```html
+...
 <body>
 	<h1>Indice de Loggers</h1>
 	<a href="log0.html">Enlace al Logger version 0</a>
 	<a href="log1.html">Enlace al Logger version 1</a>
 	<a href="log2.html">Enlace al Logger version 2</a>
 </body>
+...
 ```
 
 Seguidamente, se exxplicará el funcionamiento de los formularios desarrollados
