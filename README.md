@@ -1,8 +1,8 @@
 # Resumen de Actas | DEW-3TI11-L1
 
-#Acta de Reunión nº3
+## Acta de Reunión nº3
 
-###Preámbulo
+### Preámbulo
 ------------
 Esta reunión se realizo el día jueves 27/04/2023
 
@@ -16,14 +16,14 @@ El grupo está compuesto por:
 El alumno firmante es:
 - José Andrés Penadés Cervelló
 
-###Resumen
+### Resumen
 -----------
 Tras la explicación de la sesión el día 26/04/2023 por parte del profesor, se inició esta reunión con el objetivo de realizar las tareas correspondientes a la 
 sesión número 1 de la segunda parte de las prácticas. En dicha reunión, se desarrollaron mediante Eclipse los primeros **servlets** del proyecto (prototipos 
 de log) que se  pusieron a prueba mediante formularios. Además, se realizaromn las primeras interacciones con la aplicación CentroEducativo mediante el uso 
 de **curl**. 
 
-###Desarrollo
+### Desarrollo
 -------------
 **Formularios**
 Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada 
@@ -73,7 +73,7 @@ Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero re
 
 
 
-###En referencia al profesor
+### En referencia al profesor
 ----------------------------
 La reunión ha transcurrido sin incidentes que precisaran de la presencia o ayuda del profesor.
 
