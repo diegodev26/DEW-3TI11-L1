@@ -3,7 +3,7 @@
 ## Acta de Reunión nº1
 
 ### Preámbulo
----
+___
 La reunión se realizó en persona el día miércoles **19/04/2023**
 
 El grupo está compuesto por:
@@ -17,12 +17,12 @@ El alumno firmante es:
 - José Andrés Penadés Cervelló
 
 ### Resumen
-----
+---
 Tras la presentación del trabajo por parte del profesor, se realizó una reunión al salir del aula en la que los miembros del grupo especificamos la forma de trabajar
 para las próximas reuniones y el desarrollo del trabajo de prácticas. 
 
 ### Desarrollo
-----
+---
 Para definir la dinámica de trabajo se creó un grupo de WhatsApp para facilitar la comunicación entre reuniones, mientras que durante las reuniones se usará Discord 
 como método de comunicación y, finalmente, para facilitar la compartición de código se inicializó un GitHub (git) como herramienta común. 
 Diego Córdoba creó un Trello con el objetivo de mantener un registro de las actividades y tareas realizadas, además de contener enlaces y documentos (como tablas, 
@@ -53,14 +53,14 @@ El alumno firmante es:
 - José Andrés Penadés Cervelló
 
 ### Resumen
-----
+---
 Tras la explicación de la sesión el día 26/04/2023 por parte del profesor, se inició esta reunión con el objetivo de realizar las tareas correspondientes a la 
 sesión número 1 de la segunda parte de las prácticas. En dicha reunión, se desarrollaron mediante Eclipse los primeros **servlets** del proyecto (prototipos 
 de log) que se  pusieron a prueba mediante formularios. Además, se realizaromn las primeras interacciones con la aplicación CentroEducativo mediante el uso 
 de **curl**. 
 
 ### Desarrollo
-----
+---
 **Formularios**
 Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada 
 formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, 
@@ -104,5 +104,5 @@ Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero re
 **Curl**
 
 ### En referencia al profesor
-----
+---
 La reunión ha transcurrido sin incidentes que precisaran de la presencia o ayuda del profesor.
