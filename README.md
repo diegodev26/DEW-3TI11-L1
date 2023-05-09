@@ -240,7 +240,7 @@ Reunión breve para revisar la correctitud de los entregables antes de entregar 
 
 ### Desarrollo
 ---
-Se han revisado todos los archivos y se han modificado algunos detalles puramente estéticos en la salida de los loggers. Tras estos ligeros cambios todos han estado de acuerdo en realizar la entrega.
+Se han revisado todos los archivos y se han modificado algunos detalles de los loggers y las órdenes curl. Tras estos ligeros cambios todos han estado de acuerdo en realizar la entrega.
 
 ### En referencia al profesor
 ----
