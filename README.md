@@ -1,9 +1,6 @@
 # Resumen de Actas | DEW-3TI11-L1
-
 ----
-
 ## Acta de Reunión nº1
-
 ### Preámbulo
 ------------
 
