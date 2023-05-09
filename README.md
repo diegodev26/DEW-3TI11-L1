@@ -4,15 +4,17 @@
 
 ### Preámbulo
 ---
-- La sesión se realizó en el laboratorio el día miércoles **26/04/2023**
+La reunión se realizó en persona el día miércoles **26/04/2023** en referencia a la sesión 0 de laboratorio.
 
-- **Grupo 3ti11_g06**
+El grupo 3ti11_g06 está compuesto por:
+- Pablo Cerdá Puche
+- Diego Córdoba Serra
+- Jorge Gandara Sanchis
+- Francisco Lozano Mellado
+- José Andrés Penadés Cervelló
 
-- **Sesión 0** de Laboratorio DEW
-
-- Acuden a la Sesión todos los integrantes del grupo
-
-- Documento realizado y firmado por **Francisco Lozano Mellado**
+El alumno firmante es:
+- Francisco Lozano Mellado
 
 ### Resumen
 ---
@@ -42,9 +44,9 @@ Exposición de los temas reapartidos en la **reunión 1** y posterior evaluació
 
 ### Preámbulo
 ---
-La reunión se realizó en persona el día miércoles **19/04/2023**
+La reunión se realizó en persona el día miércoles **19/04/2023** en referencia a la sesión 1 de laboratorio.
 
-El grupo está compuesto por:
+El grupo 3ti11_g06 está compuesto por:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
 - Jorge Gandara Sanchis
@@ -78,9 +80,9 @@ Durante el desarrollo de la reunión no se ha producido ningún incidente que ne
 
 ### Preámbulo
 ----
-Esta reunión se realizo el día jueves 27/04/2023
+Esta reunión se realizo el día jueves 27/04/2023 en referencia a la sesión 2 de laboratorio.
 
-El grupo está compuesto por:
+El grupo 3ti11_g06 está compuesto por:
 - Pablo Cerdá Puche
 - Diego Córdoba Serra
 - Jorge Gandara Sanchis
