@@ -106,7 +106,7 @@ Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una ser
 ...
 ```
 
-Seguidamente, se exxplicará el funcionamiento de los formularios desarrollados:
+Seguidamente, se explicará el funcionamiento de los formularios desarrollados:
 1. El formulario adjuntado a continuación hace referencia a la ejecución del servlet log0. Se han desarrollado tres formularios diferentes, cada uno relacionado con su servlet. Cada formulario se llama "logn.html", siendo n el número de log. Como se puede observar, distinguimos cuatro inputs. 
 2. El primer input es de tipo text y hace referencia al DNI del usuario. 
 3. El segundo input, también de tipo text, hace referencia a los apellidos del usuario.
