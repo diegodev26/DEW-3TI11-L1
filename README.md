@@ -34,40 +34,6 @@ Tras definir el dinámica, se comentó el contenido de la próxima sesión de la
 ### En referencia al profesor
 ----
 Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor
-La reunión se realizó en persona el día miércoles **26/04/2023** en referencia a la sesión 0 de laboratorio.
-
-El grupo 3ti11_g06 está compuesto por:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-
-El alumno firmante es:
-- Francisco Lozano Mellado
-
-### Resumen
----
-Exposición de los temas reapartidos en la **reunión 1** y posterior evaluación a cada miembro.
-
-### Desarrollo
----
-- Cerdá Puche Pablo: *Expectativas, Brainstorming*
-    > Extrae las ideas principales y las comunica de manera eficaz
-
-- Diego Córdoba Serra: *Conflictos, Gestión de Conflictos*
-    > Se apoya en un lenguaje claro y sencillo para conseguir transmitir las ideas.
-
-- Jorge Gandara Sanchis: *Comunicación, Objetivos, Resolución de Problemas*
-    > Se apoya en ejemplos que ayudan a visualizar los conceptos y demuestra gran capacidad de síntesis.
-
-- Francisco Lozano Mellado: *Conflictos, Gestión de Conflictos*
-    > Se preocupa de que todos entiendan las ideas que expone y usa un tono más suave para facilitar la comprensión.
-
-- Jose Andrés Penadés Cervelló: *Comunicación, Objetivos, Resolución de Problemas*
-   > Demuestra habilidad para resumir la información y exponerla.
-
--> Para la próxima sesión el equipo acuerda practicar con Eclipse la publicación en Servidor de proyectos web dinámicos
 
 
 ## Acta de Reunión nº2
