@@ -53,4 +53,15 @@
     <servlet-name>login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+   <auth-constraint>
+      <role-name>rolalu</role-name>
+      <role-name>rolpro</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-role>
+    <role-name>rolalu</role-name>
+  </security-role>
+  <security-role>
+    <role-name>rolpro</role-name>
+  </security-role>
 </web-app>
