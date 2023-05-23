@@ -312,9 +312,13 @@ Tras la explicación de la sesión el día 17/05/2023 por parte del profesor, se
 
 ### Desarrollo
 ---
+
+**Detalles de prueba**
+
 Para comprobar el correcto funcionamiento de los servlets. Iniciamos el servidor y accedemos a la URL. Nos aparece como página de vida un índice en el cual se nos da la opción de acceder como alumno. Una vez pulsado este botón aparece una alerta en la cual se pide insertar las credenciales(dni y constraseña), si las insertamos de manera correcta se nos abre una nueva página de la cual habaremos luego, sin embargo, si de manera contraria, las credenciales no son correctas no se redirige a otra página. La página que se nos abre al insertar de manera correcta contiene tanto nombre como dni del alumno que ha iniciado sesión además de las asignaturas en las que está matriculado, si clicamos sobre una de estas asignaturas nos sale información detallada de ésta.
 
 **Estado del grupo**
+
 En cuanto al grupo, este no presenta problemas, las reuniones se realizan los días acordados y todos los miembros acuden. Se acordó en la primera reunión ir a alcanzar la máxima nota posible y, de momento, se mantiene ese objetivo. 
 
 ### En referencia al profesor
