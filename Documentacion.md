@@ -166,7 +166,8 @@ La petición GET anterior nos devuelve un string por la conversión pero nos int
             JSONObject detalles = new JSONObject(detallesAsignaturas);
             String nombreD = detalles.getString("nombre");
 ```
-Estos fragmentos de código nos permiten entender como se tratan las respuestas a las peticiones HTTP, haciendo las conversiones a JSON para poder acceder facilmente a sus atributos.
+Estos fragmentos de código nos permiten entender como se tratan las respuestas a las peticiones HTTP, haciendo las conversiones a JSON para poder acceder facilmente a sus atributos
+
 ---
 ## Construcción y Retorno de las páginas HTML de respuesta
 El servlet de Login para alumno debe construir dinámicamente la página HTML a devolver al cliente con la información de este.
@@ -202,4 +203,4 @@ Antes de todo esto debemos escribir todo lo que una correcta página HTML tiene:
         PrintWriter out = response.getWriter();
         out.println(titulo);
 ```
-usaremos el "out.println("")" para ir añadiendo cada linea del documento HTML en construcción.
+Usaremos el "out.println("")" para ir añadiendo cada linea del documento HTML en construcción.
