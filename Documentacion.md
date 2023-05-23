@@ -58,7 +58,6 @@ Cada botón redirige al cliente a su respectivo servlet para iniciar sesión con
       <role-name>rolpro</role-name>
     </auth-constraint>
   </security-constraint>
-
 ```
 
 ## Autenticación Web
