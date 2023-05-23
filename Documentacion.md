@@ -165,7 +165,6 @@ La petición GET anterior nos devuelve un string por la conversión pero nos int
                     .returnContent().toString();
             JSONObject detalles = new JSONObject(detallesAsignaturas);
             String nombreD = detalles.getString("nombre");
-
 ```
 Estos fragmentos de código nos permiten entender como se tratan las respuestas a las peticiones HTTP, haciendo las conversiones a JSON para poder acceder facilmente a sus atributos.
 ---
