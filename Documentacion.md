@@ -63,7 +63,7 @@ Cada botón redirige al cliente a su respectivo servlet para iniciar sesión con
 ## Autenticación Web
 Como hemos mencionado en el punto anterior, se ejecuta un filtro de Autenticación basado en roles que permite o no acceder al login del rol para más tarde poder enviar las credenciales por **POST**
 
-![captura](http://personales.alumno.upv.es/flozmel/dew5/weblogin.png)
+![captura](http://personales.alumno.upv.es/flozmel/dew5/loginweb.png)
 
 ---
 ## Login con CentroEducativo + Mantener Sesión
