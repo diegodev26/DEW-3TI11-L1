@@ -270,7 +270,17 @@ Tras la explicación de la sesión el día 10/05/2023 por parte del profesor, se
 
 ### Desarrollo
 ---
+**Selección de bibliotecas**
 
+Para el desarrollo de las interacciones con CentroEducativo se usaron una serie de bibliotecas 
+Entre ellas:
+ - *jna-5.2.0.jar* , ya que nos permite a interactuar con bibliotecas nativas de otros lenguajes a través de una interfaz java.
+ - *httpclient5-5.0.3.jar*, ya que proporciona una API que permite realizar solicitudes HTTP y manejar respuestas.
+ - *httpcore5-5.0.2.jar*, ya que proporciona los componentes básicos para la implementación de protocolos HTTP.
+ - *json-java.jar* , ya que proporciona funcionalidades para analizar, generar y manipular datos JSON.
+ - *reactive-streams-1.0.2.jar* , ya que permite un manejo de datos eficiente y escalable.
+ - *rxjava-2.2.8.jar*, mismas funcionalidades que la librería anterior. 
+ - *slf4j-api-1.7.25.jar*, nos proporciona una interfaz de manejo de eventos. 
 
 ### En referencia al profesor
 ---
