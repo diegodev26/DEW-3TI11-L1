@@ -33,23 +33,33 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h4 class="mt-5">Si eres alumn@</h4>
-        <p>Podr&aacute;s <a href="login_alumno.html">consultar</a> tus calificaciones. Debes contar con tus datos identificativos para acceder.</p>
-        <h4 class="mt-5">Si eres profesor@</h4>
-        <p>Podr&aacute;s <a href="login_profesor.html">consultar o modificar</a> las calificaciones en tus asignaturas. Debes contar con tus datos identificativos para acceder.</p>
+        <div id="alumno">
+            <form action="logger">
+              <h5>Si eres alumn@ podrás consultar tus calificaciones. Debes contar con tus datos identificativos para acceder.</h5>
+              <button type="submit" class="btn btn-outline-primary" id="loginAlumno">Alumno</button>
+            </form>
+        </div>
+        <div id="profesor">
+          <form action="">
+            <h5>Si eres profesor/a podrás consultar o modificar las calificaciones en tus asignaturas. Debes contar con tus datos identificativos para acceder.</h5>
+            <button type="submit" class="btn btn-outline-primary" id="loginProfesor">Profesor</button>
+          </form>
+        </div>
       </div>
       <div class="col-md-6">
         <div class="square">
             <h5>Grupo DEW</h5>
-          <ol>
-            <li>Nombre 1</li>
-            <li>Nombre 2</li>
-            <li>Nombre 3</li>
-          </ol>
+            <ol>
+              <li>Pablo Cerdá Puche</li>
+              <li>Diego Córdoba Serra</li>
+              <li>Jorge Gándara Sanchis</li>
+              <li>Francisco Lozano Mellado</li>
+              <li>José Andrés Penadés Cervelló</li>
+            </ol>
         </div>
       </div>
-    </div>
-    <div class="separator mt-4"></div>
+   </div>
+  <div class="separator mt-4"></div>
   </div>
 
   <div class="container-fluid text-center py-3 footer">
