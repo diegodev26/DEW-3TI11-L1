@@ -24,8 +24,8 @@ Tras la explicación de la sesión el día 17/05/2023 por parte del profesor, se
 
 Para comprobar el correcto funcionamiento de los servlets. Iniciamos el servidor y accedemos a la URL. Nos aparece como página de vida un índice en el cual se nos da la opción de acceder como alumno.
 
-![captura](https://personales.alumno.upv.es/pcerpuc/dew5/image.png)
-
+<image src="https://personales.alumno.upv.es/pcerpuc/dew5/image.png" alt="Descripción de la imagen">
+  
 Una vez pulsado este botón aparece una alerta en la cual se pide insertar las credenciales(dni y constraseña), si las insertamos de manera correcta se nos abre una nueva página de la cual habaremos luego, sin embargo, si de manera contraria, las credenciales no son correctas no se redirige a otra página. 
 
 ![captura](https://personales.alumno.upv.es/pcerpuc/dew5/image1.png)
