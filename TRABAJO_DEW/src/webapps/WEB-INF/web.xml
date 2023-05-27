@@ -13,13 +13,21 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!--DEFINICION DE FILTRO-->
   <filter>
+    <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
     <display-name>Autenticate</display-name>
+    <!--NOMBRE DEL FILTRO .JAVA-->
     <filter-name>Autenticate</filter-name>
+    <!--NOMBRE DE LA CLASE-->
     <filter-class>Autenticate</filter-class>
   </filter>
+  <!--MAPEO DE FILTRO-->
   <filter-mapping>
+    <!--REFERENCIA DEL FILTRO-->
     <filter-name>Autenticate</filter-name>
+    <!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
     <servlet-name>LoggerAlumno</servlet-name>
   </filter-mapping>
   <servlet>
