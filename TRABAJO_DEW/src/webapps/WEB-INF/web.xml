@@ -30,6 +30,7 @@
     <!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
     <servlet-name>LoggerAlumno</servlet-name>
   </filter-mapping>
+  
   <!--DEFINICION/CREACION DE SERVLET-->
   <servlet>
     <description></description>
