@@ -14,7 +14,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  
   <security-constraint>
     <!--COLECCION DE RECURSOS A LOS QUE SE APLICA RESTRICCION-->
     <web-resource-collection>
@@ -34,13 +33,17 @@
     </auth-constraint>
   </security-constraint>
   
+  <!--SOLICITUD DE CREDENCIALES MEDIANTE METODO BASIC, ENVIA LAS CREDENCIALES SIN CIFRADO EN CADA SOLICITUD HTTP-->
   <login-config>
     <auth-method>BASIC</auth-method>
     <realm-name>Protegido</realm-name>
   </login-config>
   
+  <!--DEFINE UNA PAGINA DE ERROR PERSONALIZADO-->
   <error-page>
+    <!--DEFINE EL TIPO DE ERROR, EN ESTE CASO 401, ERROR DE AUTENTICACION-->
     <error-code>401</error-code>
+    <!--CUANDO SE DA EL ERROR 401, LA PAGINA REDIRIGE AL USUARIO A LA URL /INDEX.HTML-->
     <location>/index.html</location>
   </error-page>
   
