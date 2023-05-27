@@ -14,7 +14,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!--DEFINICION DE FILTRO-->
+  <!--DEFINICION/CREACION DE FILTRO-->
   <filter>
     <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
     <display-name>Autenticate</display-name>
@@ -30,14 +30,21 @@
     <!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
     <servlet-name>LoggerAlumno</servlet-name>
   </filter-mapping>
+  <!--DEFINICION/CREACION DE SERVLET-->
   <servlet>
     <description></description>
+    <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
     <display-name>LoggerAlumno</display-name>
+    <!--NOMBRE DEL SEVLET .JAVA-->
     <servlet-name>LoggerAlumno</servlet-name>
+    <!--NOMBRE DE LA CLASE-->
     <servlet-class>LoggerAlumno</servlet-class>
   </servlet>
+  <!--MAPEO DE SERVLET-->
   <servlet-mapping>
+    <!--REFERENCIA DEL SERVLET-->
     <servlet-name>LoggerAlumno</servlet-name>
+    <!--CUANDO SE RECIBA UNA SOLICITUD DE URL /LOGGERALUMNO, SE EJECUTARA LOGGERALUMNO.JAVA-->
     <url-pattern>/LoggerAlumno</url-pattern>
   </servlet-mapping>
   <security-constraint>
