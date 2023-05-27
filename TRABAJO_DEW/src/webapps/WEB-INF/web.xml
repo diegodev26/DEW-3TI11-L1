@@ -14,14 +14,22 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-    <security-constraint>
+  
+  <security-constraint>
+    <!--COLECCION DE RECURSOS A LOS QUE SE APLICA RESTRICCION-->
     <web-resource-collection>
+      <!--NOMBRE LEGIBLE-->
       <web-resource-name>DEWAlu</web-resource-name>
+      <!--URL QUE SE LE APLICA LA RESTRICCION-->
       <url-pattern>/LoggerAlumno</url-pattern>
+      <!--METODOS QUE SE LE APLICA LA RESTRICCION-->
       <http-method>GET</http-method>
       <http-method>POST</http-method>
     </web-resource-collection>
+    <!--DEFINE UNA RESTRICCION DE AUTENTICACION PARA LOS RECURSOS ANTERIORES-->
     <auth-constraint>
+      <!--ESPECIFICA QUE SE DEBE ACCEDER CON NOMBRE DE ROL ALUMNO PARA ACCEDER A LOS RECURSOS ANTERIORES-->
+      <!--EN RESUMEN, SOLO LOS ALUMNOS PUEDEN ACCEDER A LOGGERALUMNO Y EJECUTAR LOS METODOS GET Y POST-->
       <role-name>rolalu</role-name>
     </auth-constraint>
   </security-constraint>
@@ -30,6 +38,7 @@
     <auth-method>BASIC</auth-method>
     <realm-name>Protegido</realm-name>
   </login-config>
+  
   <error-page>
     <error-code>401</error-code>
     <location>/index.html</location>
