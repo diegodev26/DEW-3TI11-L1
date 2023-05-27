@@ -33,7 +33,7 @@
     </auth-constraint>
   </security-constraint>
   
-  <!--SOLICITUD DE CREDENCIALES MEDIANTE METODO BASIC, ENVIA LAS CREDENCIALES SIN CIFRADO EN CADA SOLICITUD HTTP-->
+  <!--SOLICITUD DE CREDENCIALES DE LOGIN MEDIANTE METODO BASIC, ENVIA LAS CREDENCIALES SIN CIFRADO EN CADA SOLICITUD HTTP-->
   <login-config>
     <auth-method>BASIC</auth-method>
     <realm-name>Protegido</realm-name>
