@@ -25,7 +25,7 @@ public class Logger0 extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");
 		
-		// IMPRIMIMOS EL HTML
+		// IMPRIMIMOS LA RESPUESTA EN PANTALLA
 		pw.println("<!DOCTYPE html>\n<html>\n<head>\n" + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />");
 		pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
 	}
