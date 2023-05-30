@@ -15,14 +15,17 @@ public class Logger0 extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// CREACIÓN DE VARIABLES OBTENIDAS DEL FORM
+		
+		// OBTENEMOS Y GUARDAMOS LAS VARIABLES ESCRITAS Y ENVIADAS DESDE EL FORMULARIO
 		PrintWriter pw = response.getWriter();
 		String dni = request.getParameter("dni");
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
+		
+		// DEFINIMOS QUE EL CONTENIDO DE LA RESPUESTA SE TRATA DE UN HTML
+		response.setContentType("text/html");
 		// HTML DINAMICO
 		String html5 = "<!DOCTYPE html>\n<html>\n<head>\n" + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />";
-		response.setContentType("text/html");
 		pw.println(html5);
 		pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
 	}
