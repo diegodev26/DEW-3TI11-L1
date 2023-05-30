@@ -19,7 +19,7 @@ public class Logger1 extends HttpServlet {
 		// CREACION DEL ARCHIVO DE TEXTO Y CONTROL DE FALLO DE CREACION(ESTANDAR)
 		File f = new File("/home/user/Escritorio/outputLog.log");
 		try {
-			
+			f.createNewFile();
 		}catch(Exception e) {
 			System.out.println("Error de creacion de archivo");
 		}
@@ -30,12 +30,11 @@ public class Logger1 extends HttpServlet {
 		String apellidos = request.getParameter("apellidos");
 		
 		// INICIALIZAMOS EL PRINT EN PANTALLA Y DEFINIMOS QUE EL CONTENIDO DE LA RESPUESTA SE TRATA DE UN HTML
-		PrintWriter pw = response.getWriter();
-		response.setContentType("text/html");
+		PrintWriter pw = new PrintWriter(new FileOutputStream(new File("/home/user/Escritorio/outputLog.log"),true));
 		
-		// IMPRIMIMOS EL HTML
-		pw.println("<!DOCTYPE html>\n<html>\n<head>\n" + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />");
+		// ESCRIBIMOS LA INFORMACION EN EL ARCHIVO DE TEXTO
 		pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
+		pw.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
