@@ -29,7 +29,7 @@ public class Logger1 extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		
-		// INICIALIZAMOS EL PRINT EN PANTALLA Y DEFINIMOS QUE EL CONTENIDO DE LA RESPUESTA SE TRATA DE UN HTML
+		// INICIALIZAMOS EL PRINT EN PANTALLA
 		PrintWriter pw = new PrintWriter(new FileOutputStream(new File("/home/user/Escritorio/outputLog.log"),true));
 		
 		// ESCRIBIMOS LA INFORMACION EN EL ARCHIVO DE TEXTO
