@@ -1,5 +1,5 @@
 
-
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +15,27 @@ public class Logger1 extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		// CREACION DEL ARCHIVO DE TEXTO Y CONTROL DE FALLO DE CREACION(ESTANDAR)
+		File f = new File("/home/user/Escritorio/outputLog.log");
+		try {
+			
+		}catch(Exception e) {
+			System.out.println("Error de creacion de archivo");
+		}
+		
+		// OBTENEMOS Y GUARDAMOS LAS VARIABLES ESCRITAS Y ENVIADAS DESDE EL FORMULARIO
+		String dni = request.getParameter("dni");
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		
+		// INICIALIZAMOS EL PRINT EN PANTALLA Y DEFINIMOS QUE EL CONTENIDO DE LA RESPUESTA SE TRATA DE UN HTML
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html");
+		
+		// IMPRIMIMOS EL HTML
+		pw.println("<!DOCTYPE html>\n<html>\n<head>\n" + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />");
+		pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
