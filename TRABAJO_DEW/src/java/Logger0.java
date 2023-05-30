@@ -15,8 +15,16 @@ public class Logger0 extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// CREACIÓN DE VARIABLES OBTENIDAS DEL FORM
+		PrintWriter pw = response.getWriter();
+		String dni = request.getParameter("dni");
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		// HTML DINAMICO
+		String html5 = "<!DOCTYPE html>\n<html>\n<head>\n" + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />";
+		response.setContentType("text/html");
+		pw.println(html5);
+		pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
