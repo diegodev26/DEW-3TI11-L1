@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html lang="es-es">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Notas OnLine</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <style>
-    #titulo {
-      background: linear-gradient(to right, black, white);
-      color: white;
-    }
-    .title {
-      font-weight: 600;
-      font-size: 3rem;
-      color: white;
-    }
-    .subtitle {
-      font-weight: 500;
-      font-size: 1rem;
-      color: white;
-    }
-    .square {
-      background-color: lightgray;
-      padding: 1rem;
-    }
-    .separator {
-      border-top: 1px solid lightgray;
-    }
-    .alu {
-      font-weight: normal;
-      font-size: 18px;
-      color: black;
-    }
-    .pro {
-      font-weight: normal;
-      font-size: 18px;
-      color: black;
-    }
-    .footer {
-      font-weight: normal;
-      font-size: 14px;
-      color: black;
-    }
-    </style>
+<meta charset="UTF-8">
+<title>Notas OnLine</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+<style>
+#titulo {
+background: linear-gradient(to right, black, white);
+color: white;
+}
+.title {
+font-weight: 600;
+font-size: 3rem;
+color: white;
+}
+.subtitle {
+font-weight: 500;
+font-size: 1rem;
+color: white;
+}
+.square {
+background-color: lightgray;
+padding: 1rem;
+}
+.separator {
+border-top: 1px solid lightgray;
+}
+.alu {
+font-weight: normal;
+font-size: 18px;
+color: black;
+}
+.pro {
+font-weight: normal;
+font-size: 18px;
+color: black;
+}
+.footer {
+font-weight: normal;
+font-size: 14px;
+color: black;
+}
+</style>
 </head>
+
 <body>
-  <div class="container-fluid text-center py-5" id="titulo">
-    <h1 class="title">Bienvenid@ a Notas OnLine</h1>
-    <h3 class="subtitle">Consulta tus notas de forma r&aacute;pida</h3>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div id="alumno">
-            <form action="LoggerAlumno">
-              <br>
-              <h4 class="alu">Si eres alumn@ podr&aacute;s consultar tus calificaciones.<br>Debes disponer de tus datos identificativos para acceder.</h4>
-              <button type="submit" class="btn btn-outline-dark" id="loginAlumno">Alumno</button>
-              <br>
-            </form>
+    <div class="container-fluid text-center py-5" id="titulo">
+        <h1 class="title">Bienvenid@ a Notas OnLine</h1>
+        <h3 class="subtitle">Consulta tus notas de forma r&aacute;pida</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="alumno">
+                    <form action="LoggerAlumno">
+                        <br>
+                        <h4 class="alu">Si eres alumn@ podr&aacute;s consultar tus calificaciones.<br>Debes disponer de tus datos identificativos para acceder.</h4>
+                        <button type="submit" class="btn btn-outline-dark" id="loginAlumno">Alumno</button>
+                        <br>
+                    </form>
+                </div>
+                <div id="profesor">
+                <form action="">
+                    <br>
+                    <h4 class="pro">Si eres profesor/a podr&aacute;s consultar o modificar las calificaciones en tus
+                    asignaturas.<br>Debes disponer de tus datos identificativos para acceder.</h4>
+                    <button type="submit" class="btn btn-outline-dark" id="loginProfesor">Profesor</button>
+                    <br>
+                </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="square">
+                    <h5>Gupo DEW-3TI11-L1</h5>
+                    <ol>
+                    <li>Pablo Cerd&aacute; Puche</li>
+                    <li>Diego C&oacute;rdoba Serra</li>
+                    <li>Jorge G&aacute;ndara Sanchis</li>
+                    <li>Francisco Lozano Mellado</li>
+                    <li>Jos&eacute; Andr&eacute;s Penad&eacute;s Cervell&oacute;</li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <div id="profesor">
-          <form action="">
-          	<br>
-            <h4 class="pro">Si eres profesor/a podr&aacute;s consultar o modificar las calificaciones en tus asignaturas.<br>Debes disponer de tus datos identificativos para acceder.</h4>
-            <button type="submit" class="btn btn-outline-dark" id="loginProfesor">Profesor</button>
-            <br>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="square">
-            <h5>Gupo DEW-3TI11-L1</h5>
-            <ol>
-              <li>Pablo Cerd&aacute; Puche</li>
-              <li>Diego C&oacute;rdoba Serra</li>
-              <li>Jorge G&aacute;ndara Sanchis</li>
-              <li>Francisco Lozano Mellado</li>
-              <li>Jos&eacute; Andr&eacute;s Penad&eacute;s Cervell&oacute;</li>
-            </ol>
-        </div>
-      </div>
-   </div>
-  <div class="separator mt-4"></div>
-  </div>
-  <div class="container-fluid text-center py-3 footer">
-    <p>Trabajo en grupo realizado para la asignatura Desarrollo Web | Curso 2022-2023</p>
-  </div>
+        <div class="separator mt-4"></div>
+    </div>
+    <div class="container-fluid text-center py-3 footer">
+        <p>Trabajo en grupo realizado para la asignatura Desarrollo Web | Curso 2022-2023</p>
+    </div>
 </body>
+
 </html>
