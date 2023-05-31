@@ -2,24 +2,23 @@
 <html lang="es-es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Pagin Notas Online Alumno</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Bienvenid@ a Notas OnLine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <title>Pagina Notas Online Alumno</title>
 </head>
 <body>
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="container">
         <div class="row" id="titulo">
-            <h1 class="display-1 font-italic">
-                <b>Notas OnLine Alumno</b>
-                <b class="h2 font-italic">Esta p&aacute;gina muestra las asignaturas en las que nombre_alumno apellido_alumno est&aacute; matriculad@.</b>
+            <h1>
+                Inicio
             </h1>
+            <h2>
+                Esta p&aacute;gina muestra las asignaturas en las que nombre_alumno apellido_alumno est&aacute; matriculad@.
+            </h2>
         </div>
     </div>
-    <div>
-        <div>
+    <div class="container">
+        <div class="col-md-6">
             <form action="DetailPage" method="GET">
                 <input type="hidden" name="asig" value=acronimo>
                 <input type="hidden" name="dni" value=dni>
@@ -31,21 +30,18 @@
                 <button type="submit" class="btn btn-outline-danger" id="logout">Cerrar Sesi&oacute;n</button>
             </form>
         </div>
-        <div class="card col-3 text-dark" style="width: 18rem;" id="nombres"> 
-            <div class='card-body'>
-                <h5 class='card-title'>Grupo 3TI11_L1</h5>
+        <div class="col-md-6">
+            <div class="square">
+                <h5>Gupo DEW-3TI11-L1</h5>
                 <ol>
-                    <li>Pablo Cerdá Puche</li>
-                    <li>Diego Córdoba Serra</li>
-                    <li>Jorge Gandara Sanchis/li>
-                    <li>Francisco Lozano Mellado</li>
-                    <li>José Andrés Penadés Cervelló</li>
+                  <li>Pablo Cerd&aacute; Puche</li>
+                  <li>Diego C&oacute;rdoba Serra</li>
+                  <li>Jorge G&aacute;ndara Sanchis</li>
+                  <li>Francisco Lozano Mellado</li>
+                  <li>Jos&eacute; Andr&eacute;s Penad&eacute;s Cervell&oacute;</li>
                 </ol>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid text-center py-3 footer">
-        <p>Trabajo en grupo realizado por el grupo 3TI11_L1 en el curso DEW 2022/2023</p>
+          </div>
     </div>
 </body>
 </html>
