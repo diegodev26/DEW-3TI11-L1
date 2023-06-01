@@ -28,27 +28,34 @@ public class LoggerAlumno extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
                         throws ServletException, IOException {
 
-                // GUARDAMOS EL <HEAD> DEL HTML DINAMICO POR SI LO USAMOS EN MAS DE UNA OCASIÓN
+                // GUARDAMOS EL <HEAD> DEL HTML DINAMICO POR SI LO USAMOS EN MAS DE UNA OCASION
                 // PARA SALTOS DE LINEA CONCATENAMOS CADA LINEA Y PARA LAS COMILLAS DOBLES
                 // \"ejemplo\"
                 String html = "<!DOCTYPE html>" +
                                 "<html lang=\"es-es\">" +
                                 "<head>" +
-                                "<meta charset=\"UTF-8\">" +
-                                "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">"
-                                +
-                                "<title>Notas Oline Alumno</title>" +
+                                        "<meta charset=\"UTF-8\">" +
+                                        "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">"
+                                        +
+                                        "<title>Notas Oline Alumno</title>" +
                                 "</head>";
 
-                // ESTABLECEMOS QUE LOS RESPONSE IMPRESOS SERAN DE TIPO HTML
+                // DEFINIMOS QUE LOS RESPONSE ENVIADOS SERAN DE TIPO HTML
                 response.setContentType("text/html");
-                PrintWriter out = response.getWriter();
-                out.println(titulo);
-                HttpSession session = request.getSession();
-                String dni = session.getAttribute("dni").toString();
-                String key = session.getAttribute("key").toString();
 
-                List<Cookie> cookie_list = (List<Cookie>) session.getAttribute("cookie");
+                // CREAMOS LA SESION
+                HttpSession sesion = request.getSession();
+
+                // INICIALIZO UN ARRAY DE COOKIES PARA ALMACENAR VARIAS
+                List<Cookie> cookie_list = (List<Cookie>) sesion.getAttribute("cookie");
+
+                // EXTRAEMOS Y GUARDAMOS EL ESCRITOR DE RESPONSE PARA POSTERIORMENTE FACILITAR LOS PRINTS
+                PrintWriter out = response.getWriter();
+
+                //  OBTENEMOS EL DNI Y KEU OBTENIDOS TRAS EJECUTAR EL FILTRO DE AUTENTICACION TRAS EL LOGIN DE DNI Y KEY
+                String dni = sesion.getAttribute("dni").toString();
+                String key = sesion.getAttribute("key").toString();
+
                 String url = request.getLocalName();
                 BasicCookieStore cookies = new BasicCookieStore();
                 cookies.addCookie(cookie_list.get(0));
@@ -61,6 +68,7 @@ public class LoggerAlumno extends HttpServlet {
                 JSONObject alumno = new JSONObject(t);
                 String nombre_alumno = alumno.get("nombre").toString();
                 String apellido_alumno = alumno.get("apellidos").toString();
+                out.println(titulo);
                 out.println("<body>" +
                                 "<div class=\"jumbotron p-4 p-md-5 text-white rounded bg-dark\">" +
                                 "   <div class='row' id='titulo'>" +
@@ -77,7 +85,7 @@ public class LoggerAlumno extends HttpServlet {
                                 "           <p><b>ASIGNATURAS:</b></p>" +
                                 "       </div>");
 
-                session.setAttribute("rol", "rolalu");
+                sesion.setAttribute("rol", "rolalu");
                 String parametro_asignatura = "asignatura";
                 String asignaturas = executor.use(cookies)
                                 .execute(Request.get("http://" + url + ":9090/CentroEducativo/alumnos/" + dni
