@@ -65,14 +65,14 @@
     <filter-name>Autenticate</filter-name>
     <!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
     <!--DIRECCION URL VISUALIZADA POR USER-->
-    <servlet-name>login</servlet-name>
+    <servlet-name>LoggerAlumno</servlet-name>
   </filter-mapping>
   
   <!--DEFINICION/CREACION DE SERVLET-->
   <servlet>
     <description></description>
     <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
-    <display-name>alumno</display-name>
+    <display-name>login</display-name>
     <!--NOMBRE DEL SEVLET .JAVA-->
     <servlet-name>LoggerAlumno</servlet-name>
     <!--NOMBRE DE LA CLASE-->
@@ -83,7 +83,7 @@
     <!--REFERENCIA DEL SERVLET-->
     <servlet-name>LoggerAlumno</servlet-name>
     <!--CUANDO SE RECIBA UNA SOLICITUD DE URL /LOGGERALUMNO, SE EJECUTARA LOGGERALUMNO.JAVA-->
-    <url-pattern>/alumno</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

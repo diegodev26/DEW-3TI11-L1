@@ -32,6 +32,7 @@ public class Autenticate2 implements Filter{
      * 1-CAPTURAMOS LA SESION DEL CLIENTE QUE ACCEDE A LA WEB
      * 2-DEFINIMOS EL METODO QUE USAREMOS PARA ALMECENAR LAS COOKIES
      * 3-
+     * ...-EJECUTAR FILTRO EN CHAIN AL FINAL PARA POR SI EXISTEN MAS FILTROS
      */
     public Autenticate2() {
         super();
@@ -44,6 +45,10 @@ public class Autenticate2 implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
     throws ServletException IOException {
 
+        HttpSession session = request.getSession();
+
+        chain.doFilter(request, response);
+        
     }
 
     public void init(FilterConfig fConfig) throws ServletException {
