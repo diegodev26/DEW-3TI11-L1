@@ -47,6 +47,8 @@ public class Autenticate2 implements Filter{
 
         HttpSession session = request.getSession();
 
+        Cookie c = new Cookie();
+
         chain.doFilter(request, response);
         
     }
