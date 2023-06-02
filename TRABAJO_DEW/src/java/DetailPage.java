@@ -98,7 +98,7 @@ public class DetailPage extends HttpServlet {
                 + "        <p id='calificacion'><b>" + nota_asignatura + "</b></p>\r\n"
                 + "    </div>\r\n"
                 + "</div>"
-                + "<form action='LoggerAlumno'>" +
+                + "<form action='alumno'>" +
                 "<button type=\"submit\" class=\"btn btn-outline-primary\" id=\"loginAlumno\">Atras</button>"
                 +
                 "</form>");

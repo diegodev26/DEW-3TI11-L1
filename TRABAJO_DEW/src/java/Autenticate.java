@@ -22,6 +22,7 @@ import org.apache.hc.core5.http.HttpHeaders;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.json.Cookie;
 import org.json.JSONObject;
 
 public class Autenticate implements Filter {

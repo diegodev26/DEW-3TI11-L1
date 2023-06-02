@@ -64,7 +64,8 @@
     <!--REFERENCIA DEL FILTRO-->
     <filter-name>Autenticate</filter-name>
     <!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
-    <servlet-name>LoggerAlumno</servlet-name>
+    <!--DIRECCION URL VISUALIZADA POR USER-->
+    <servlet-name>login</servlet-name>
   </filter-mapping>
   
   <!--DEFINICION/CREACION DE SERVLET-->
@@ -82,7 +83,7 @@
     <!--REFERENCIA DEL SERVLET-->
     <servlet-name>LoggerAlumno</servlet-name>
     <!--CUANDO SE RECIBA UNA SOLICITUD DE URL /LOGGERALUMNO, SE EJECUTARA LOGGERALUMNO.JAVA-->
-    <url-pattern>/LoggerAlumno</url-pattern>
+    <url-pattern>/alumno</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -92,7 +93,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DetailPage</servlet-name>
-    <url-pattern>/DetailPage</url-pattern>
+    <url-pattern>/detail</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -102,6 +103,36 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Logout</servlet-name>
-    <url-pattern>/Logout</url-pattern>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>login</display-name>
+    <servlet-name>Logger0</servlet-name>
+    <servlet-class>Logger0</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logger0</servlet-name>
+    <url-pattern>/logger0</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>login</display-name>
+    <servlet-name>Logger1</servlet-name>
+    <servlet-class>Logger1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logger1</servlet-name>
+    <url-pattern>/logger1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>login</display-name>
+    <servlet-name>Logger2</servlet-name>
+    <servlet-class>Logger2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logger2</servlet-name>
+    <url-pattern>/logger2</url-pattern>
   </servlet-mapping>
 </web-app>

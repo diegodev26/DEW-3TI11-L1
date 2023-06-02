@@ -57,14 +57,12 @@ public class LoggerAlumno extends HttpServlet {
         String dni = sesion.getAttribute("dni").toString();
         String key = sesion.getAttribute("key").toString();
 
+
         String url = request.getLocalName();
         BasicCookieStore cookies = new BasicCookieStore();
         cookies.addCookie(cookie_list.get(0));
         Executor executor = Executor.newInstance();
-        String t = executor.use(cookies)
-                .execute(Request.get("http://" + url + ":9090/CentroEducativo/alumnos/" + dni + "?key="
-                        + key))
-                .returnContent().toString();
+        String t = executor.use(cookies).execute(Request.get("http://" + url + ":9090/CentroEducativo/alumnos/" + dni + "?key=" + key)).returnContent().toString();
 
         JSONObject alumno = new JSONObject(t);
         String nombre_alumno = alumno.get("nombre").toString();
@@ -72,19 +70,19 @@ public class LoggerAlumno extends HttpServlet {
         out.println(html);
         out.println("<body>" +
                 "<div class=\"jumbotron p-4 p-md-5 text-white rounded bg-dark\">" +
-                "   <div class='row' id='titulo'>" +
-                "       <h1 class=\"display-1 font-italic\"><b>Notas OnLine Alumno</b>" + "<br>" +
-                "<b class=\"h2 font-italic\">Esta p&aacute;gina muestra las asignaturas en las que "
-                + nombre_alumno + " " + apellido_alumno + " est&aacute; matriculad@.</b></h1> </div>" +
-                "       <div id='descripcion'>" +
+                "<div class='row' id='titulo'>" +
+                "<h1 class=\"display-1 font-italic\"><b>Notas OnLine Alumno</b>" + "<br>" +
+                "<b class=\"h2 font-italic\">Esta p&aacute;gina muestra las asignaturas en las que " + nombre_alumno + " " + apellido_alumno + " est&aacute; matriculad@.</b></h1> </div>" +
+                "<div id='descripcion'>" +
                 "<br>" +
-                "       </div><br>");
+                "</div>" +
+                "<br>");
 
         out.println("<div class='row'>" +
-                "   <div class='col-8' id='inicios'>" +
-                "       <div class='row' id='asignaturas'>" +
-                "           <p><b>ASIGNATURAS:</b></p>" +
-                "       </div>");
+                "<div class='col-8' id='inicios'>" +
+                "<div class='row' id='asignaturas'>" +
+                "<p><b>ASIGNATURAS:</b></p>" +
+                "</div>");
 
         sesion.setAttribute("rol", "rolalu");
         String parametro_asignatura = "asignatura";
@@ -105,7 +103,7 @@ public class LoggerAlumno extends HttpServlet {
             JSONObject detalles = new JSONObject(detallesAsignaturas);
             String nombreD = detalles.getString("nombre");
 
-            out.println("<form action='DetailPage' method='GET'>" +
+            out.println("<form action='detail' method='GET'>" +
                     "<input type='hidden' name='asig' value='" + acronimo + "'/>" +
                     "<input type='hidden' name='dni' value='" + dni + "'/>" +
                     "<input type='hidden' name='nombre' value='" + nombre_alumno + "'/>" +
@@ -116,7 +114,7 @@ public class LoggerAlumno extends HttpServlet {
         out.println("<br>" +
                 "<br>" +
                 "<br>");
-        out.println("<form action='Logout'>" +
+        out.println("<form action='logout'>" +
                 "<button type=\"submit\" class=\"btn btn-outline-danger\" id=\"logout\">Cerrar Sesi&oacute;n</button>"
                 +
                 "</form>");
