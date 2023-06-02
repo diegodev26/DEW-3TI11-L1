@@ -68,7 +68,7 @@ public class LoggerAlumno extends HttpServlet {
                 JSONObject alumno = new JSONObject(t);
                 String nombre_alumno = alumno.get("nombre").toString();
                 String apellido_alumno = alumno.get("apellidos").toString();
-                out.println(titulo);
+                out.println(html);
                 out.println("<body>" +
                                 "<div class=\"jumbotron p-4 p-md-5 text-white rounded bg-dark\">" +
                                 "   <div class='row' id='titulo'>" +
