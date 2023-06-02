@@ -42,7 +42,7 @@ public class LoggerAlumno extends HttpServlet {
         // DEFINIMOS QUE LOS RESPONSE ENVIADOS SERAN DE TIPO HTML
         response.setContentType("text/html");
 
-        // CREAMOS LA SESION
+        // CAPTURAMOS LA SESION ACTIVA
         HttpSession sesion = request.getSession();
 
         // INICIALIZO UN ARRAY DE COOKIES PARA ALMACENAR VARIAS
