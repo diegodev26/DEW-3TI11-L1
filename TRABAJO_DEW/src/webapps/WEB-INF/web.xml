@@ -53,7 +53,7 @@
   <!--DEFINICION/CREACION DE FILTRO-->
   <filter>
     <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
-    <display-name>Autenticate</display-name>
+    <display-name>login</display-name>
     <!--NOMBRE DEL FILTRO .JAVA-->
     <filter-name>Autenticate</filter-name>
     <!--NOMBRE DE LA CLASE-->
@@ -71,7 +71,7 @@
   <servlet>
     <description></description>
     <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
-    <display-name>LoggerAlumno</display-name>
+    <display-name>alumno</display-name>
     <!--NOMBRE DEL SEVLET .JAVA-->
     <servlet-name>LoggerAlumno</servlet-name>
     <!--NOMBRE DE LA CLASE-->
@@ -86,7 +86,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DetailPage</display-name>
+    <display-name>detail</display-name>
     <servlet-name>DetailPage</servlet-name>
     <servlet-class>DetailPage</servlet-class>
   </servlet>
@@ -96,7 +96,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Logout</display-name>
+    <display-name>logout</display-name>
     <servlet-name>Logout</servlet-name>
     <servlet-class>Logout</servlet-class>
   </servlet>
