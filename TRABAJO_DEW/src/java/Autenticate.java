@@ -26,7 +26,6 @@ import org.json.JSONObject;
 
 public class Autenticate implements Filter {
 
-    // Creacion del HashMap
     Map<String, String[]> users = new HashMap<>();
 
     public Autenticate() {
