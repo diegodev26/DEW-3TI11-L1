@@ -44,7 +44,7 @@ public class Autenticate implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 		String user = req.getRemoteUser();
-		String pass = req.getHeader("Authorization").substring(6);	
+		String pass = req.getHeader("Authorization").substring(6);
 		byte[] decodedBytes = Base64.getDecoder().decode(pass);
 		String passDecoded = new String(decodedBytes).substring(10);
 		

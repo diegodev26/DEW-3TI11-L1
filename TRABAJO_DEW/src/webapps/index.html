@@ -1,87 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenid@ a Notas OnLine</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-  <style>
-    #arriba {
-      background: linear-gradient(to right, black, white);
-      color: white;
-    }
-    .title {
-      color: white;
-      font-size: 3rem;
-    }
-    .subtitle {
-      color: #ebebeb;
-      font-size: 1rem;
-    }
-    .square {
-      background-color: lightgray;
-      padding: 1rem;
-    }
-    .separator {
-      border-top: 1px solid lightgray;
-    }
-    .alu {
-      font-size: 18px;
-      color: black;
-    }
-    .pro {
-      font-size: 18px;
-      color: black;
-    }
-    .footer {
-      color: black;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenid@ a Notas OnLine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <style>
+        #arriba {
+            background: linear-gradient(to right, black, white);
+            color: white;
+        }
+
+        .title {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .subtitle {
+            color: #ebebeb;
+            font-size: 1rem;
+        }
+
+        .square {
+            background-color: lightgray;
+            padding: 1rem;
+        }
+
+        .separator {
+            border-top: 1px solid lightgray;
+        }
+
+        .alu {
+            font-size: 18px;
+            color: black;
+        }
+
+        .pro {
+            font-size: 18px;
+            color: black;
+        }
+
+        .footer {
+            color: black;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container-fluid text-center py-5" id="arriba">
-    <h1 class="title">Bienvenid@ a Notas OnLine</h1>
-    <h3 class="subtitle">Una web que facilita la consulta de tus notas con tan solo un click.</h3>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div id="alumno">
-            <form action="login">
-              <br>
-              <h5 class="alu">Si eres alumn@ podrás consultar tus calificaciones. Debes contar con tus datos identificativos para acceder.</h5>
-              <button type="submit" class="btn btn-outline-dark" id="loginAlumno">Alumno</button>
-              <br>
-            </form>
+    <div class="container-fluid text-center py-5" id="arriba">
+        <h1 class="title">Bienvenid@ a Notas OnLine</h1>
+        <h3 class="subtitle">Una web que facilita la consulta de tus notas con tan solo un click.</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="alumno">
+                    <form action="login">
+                        <br>
+                        <h5 class="alu">Si eres alumn@ podrás consultar tus calificaciones. Debes contar con tus datos
+                            identificativos para acceder.</h5>
+                        <button type="submit" class="btn btn-outline-dark" id="loginAlumno">Alumno</button>
+                        <br>
+                    </form>
+                </div>
+                <div id="profesor">
+                    <form action="">
+                        <br>
+                        <h5 class="pro">Si eres profesor/a podrás consultar o modificar las calificaciones en tus
+                            asignaturas. Debes contar con tus datos identificativos para acceder.</h5>
+                        <button type="submit" class="btn btn-outline-dark" id="loginProfesor">Profesor</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="square">
+                    <h5>Grupo DEW</h5>
+                    <ol>
+                        <li>Pablo Cerdá Puche</li>
+                        <li>Diego Córdoba Serra</li>
+                        <li>Jorge Gándara Sanchis</li>
+                        <li>Francisco Lozano Mellado</li>
+                        <li>José Andrés Penadés Cervelló</li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <div id="profesor">
-          <form action="">
-          	<br>
-            <h5 class="pro">Si eres profesor/a podrás consultar o modificar las calificaciones en tus asignaturas. Debes contar con tus datos identificativos para acceder.</h5>
-            <button type="submit" class="btn btn-outline-dark" id="loginProfesor">Profesor</button>
-            <br>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="square">
-            <h5>Grupo DEW</h5>
-            <ol>
-              <li>Pablo Cerdá Puche</li>
-              <li>Diego Córdoba Serra</li>
-              <li>Jorge Gándara Sanchis</li>
-              <li>Francisco Lozano Mellado</li>
-              <li>José Andrés Penadés Cervelló</li>
-            </ol>
-        </div>
-      </div>
-   </div>
-  <div class="separator mt-4"></div>
-  </div>
-  <div class="container-fluid text-center py-3 footer">
-    <p>Trabajo en grupo realizado para la asignatura Desarrollo Web. Curso 2022-2023</p>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="separator mt-4"></div>
+    </div>
+    <div class="container-fluid text-center py-3 footer">
+        <p>Trabajo en grupo realizado para la asignatura Desarrollo Web. Curso 2022-2023</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
