@@ -52,11 +52,11 @@
   
   <!--DEFINICION/CREACION DE FILTRO-->
   <filter>
-    <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
+    <!--NOMBRE DESCRIPTIVO-->
     <display-name>login</display-name>
-    <!--NOMBRE DEL FILTRO PARA IDENTIFICARLO-->
+    <!--NOMBRE DE LA VARIABLE FILTRO-->
     <filter-name>Autenticate</filter-name>
-    <!--NOMBRE DE LA CLASE-->
+    <!--NOMBRE DE LA CLASE EN EL .JAVA-->
     <filter-class>Autenticate</filter-class>
   </filter>
   <!--MAPEO DE FILTRO-->
@@ -64,25 +64,25 @@
     <!--REFERENCIA DEL FILTRO-->
     <filter-name>Autenticate</filter-name>
     <!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
-    <!--DIRECCION URL VISUALIZADA POR USER-->
+    <!--REFERENCIA DE LA DIRECCION URL A LA QUE SE APLICA EL FILTRO-->
     <servlet-name>LoggerAlumno</servlet-name>
   </filter-mapping>
   
-  <!--DEFINICION/CREACION DE SERVLET-->
+  <!--CREACION DE SERVLET-->
   <servlet>
     <description></description>
-    <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
+    <!--NOMBRE DESCRIPTIVO-->
     <display-name>login</display-name>
-    <!--NOMBRE DEL SEVLET PARA IDENTIFICARLO-->
+    <!--NOMBRE DE LA VARIABLE SERVLET-->
     <servlet-name>LoggerAlumno</servlet-name>
-    <!--NOMBRE DE LA CLASE-->
+    <!--NOMBRE DE LA CLASE EN EL .JAVA-->
     <servlet-class>LoggerAlumno</servlet-class>
   </servlet>
   <!--MAPEO DE SERVLET-->
   <servlet-mapping>
     <!--REFERENCIA DEL SERVLET-->
     <servlet-name>LoggerAlumno</servlet-name>
-    <!--CUANDO SE RECIBA UNA SOLICITUD DE URL /LOGGERALUMNO, SE EJECUTARA LOGGERALUMNO.JAVA-->
+    <!--CUANDO SE RECIBA UNA SOLICITUD DE URL /login, SE EJECUTARA LOGGERALUMNO.JAVA-->
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
