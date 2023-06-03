@@ -23,7 +23,7 @@
       <!--NOMBRE LEGIBLE-->
       <web-resource-name>DEWAlu</web-resource-name>
       <!--URL QUE SE LE APLICA LA RESTRICCION-->
-      <url-pattern>/LoggerAlumno</url-pattern>
+      <url-pattern>/login</url-pattern>
       <!--METODOS QUE SE LE APLICA LA RESTRICCION-->
       <http-method>GET</http-method>
       <http-method>POST</http-method>
@@ -54,7 +54,7 @@
   <filter>
     <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
     <display-name>login</display-name>
-    <!--NOMBRE DEL FILTRO .JAVA-->
+    <!--NOMBRE DEL FILTRO PARA IDENTIFICARLO-->
     <filter-name>Autenticate</filter-name>
     <!--NOMBRE DE LA CLASE-->
     <filter-class>Autenticate</filter-class>
@@ -73,7 +73,7 @@
     <description></description>
     <!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
     <display-name>login</display-name>
-    <!--NOMBRE DEL SEVLET .JAVA-->
+    <!--NOMBRE DEL SEVLET PARA IDENTIFICARLO-->
     <servlet-name>LoggerAlumno</servlet-name>
     <!--NOMBRE DE LA CLASE-->
     <servlet-class>LoggerAlumno</servlet-class>
