@@ -1,6 +1,7 @@
 # DOCUMENTACION
 
 - Documentacion Apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
+- Ejemplo Apache de interes: https://github.com/apache/httpcomponents-client/blob/5.1.x/httpclient5/src/test/java/org/apache/hc/client5/http/examples/ClientFormLogin.java
 
 - Documentacion Servlets: https://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html
 
