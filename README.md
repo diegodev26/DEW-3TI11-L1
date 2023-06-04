@@ -12,3 +12,11 @@
 ```sh
 /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar es.upv.etsinf.ti.centroeducativo-0.2.0.jar
 ```
+
+Documentacion apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
+
+Documentacion servlets: https://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html
+
+Funcionamiento y ejemplos de Servlets:
+https://docs.oracle.com/javaee/7/tutorial/servlets.htm
+https://www.tutorialspoint.com/servlets/servlets-first-example.htm
