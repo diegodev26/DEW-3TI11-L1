@@ -1,6 +1,6 @@
 # INFORMACIÓN
 
-- Exportar proy en .war, apache v.9, librerias en lib referenciadas y jdk v.11.
+- Export en formato .war, apache v.9, librerias en lib referenciadas y jdk v.11.
 
 - Habilitar usuarios de Centro Educativo en tomcat-users.xds.
 
