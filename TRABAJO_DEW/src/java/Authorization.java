@@ -1,5 +1,21 @@
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.cookie.BasicCookieStore;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.json.JSONObject;
 
 public class Authorization implements Filter {
@@ -50,12 +66,13 @@ public class Authorization implements Filter {
         HttpPost post = new HttpPost(dir);
 
         // ENCAPSULO EL JSON, AÑADO ENTITY Y LA CABECERA
-        StringEntity entity = new StringEntity(json);
+        String jsonString = json.toString();
+        StringEntity entity = new StringEntity(jsonString);
         post.setEntity(entity);
         post.setHeader("Content-Type", "application/json");
 
         // CONSULTA POST
-        CloseableHttpResponse execute = cliente.execute(dir);
+        CloseableHttpResponse execute = cliente.execute(post);
 
         // CERRAMOS RESPUESTA Y CLIENTE
         execute.close();
