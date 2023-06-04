@@ -5,7 +5,9 @@
 -Documentacion servlets: https://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html
 
 -Funcionamiento y ejemplos de Servlets:
+
 https://docs.oracle.com/javaee/7/tutorial/servlets.htm
+
 https://www.tutorialspoint.com/servlets/servlets-first-example.htm
 
 - Export en formato .war, apache v.9, librerias en lib referenciadas y jdk v.11.
