@@ -1,4 +1,4 @@
-# INFORMACIÓN
+# DOCUMENTACION
 
 - Documentacion Apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
 
@@ -13,6 +13,8 @@
   https://www.tutorialspoint.com/servlets/servlets-first-example.htm
 
 - Libreria JSON-JAVA: https://github.com/stleary/JSON-java
+
+# A TENER EN CUENTA
 
 - Export en formato .war, apache v.9, librerias en lib referenciadas y jdk v.11.
 
