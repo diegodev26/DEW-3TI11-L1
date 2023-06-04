@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://JAVA.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
 
-<!--NOMBRE VISIBLE EN LA PESTAÑA SUPERIOR-->
 <display-name>TRABAJO_DEW</display-name>
 
-<!--LISTA DE ARCHIVOS DE BIENVENIDA QUE EL SERVIDOR BUSCA Y MUESTRA EN ORDEN-->
 <welcome-file-list>
 <welcome-file>index.html</welcome-file>
 <welcome-file>index.htm</welcome-file>
@@ -18,73 +16,48 @@
 </welcome-file-list>
 
 <security-constraint>
-<!--COLECCION DE RECURSOS A LOS QUE SE APLICA RESTRICCION-->
 <web-resource-collection>
-<!--NOMBRE LEGIBLE-->
 <web-resource-name>DEWAlu</web-resource-name>
-<!--URL QUE SE LE APLICA LA RESTRICCION-->
 <url-pattern>/login</url-pattern>
-<!--METODOS QUE SE LE APLICA LA RESTRICCION-->
 <http-method>GET</http-method>
 <http-method>POST</http-method>
 </web-resource-collection>
-<!--DEFINE UNA RESTRICCION DE AUTENTICACION PARA LOS RECURSOS ANTERIORES-->
 <auth-constraint>
-<!--ESPECIFICA QUE SE DEBE ACCEDER CON NOMBRE DE ROL ALUMNO PARA ACCEDER A LOS RECURSOS ANTERIORES-->
-<!--EN RESUMEN, SOLO LOS ALUMNOS PUEDEN ACCEDER A LOGGERALUMNO Y EJECUTAR LOS METODOS GET Y POST-->
 <role-name>rolalu</role-name>
 </auth-constraint>
 </security-constraint>
 
-<!--SOLICITUD DE CREDENCIALES DE LOGIN MEDIANTE METODO BASIC, ENVIA LAS CREDENCIALES SIN CIFRADO EN CADA SOLICITUD HTTP-->
 <login-config>
 <auth-method>BASIC</auth-method>
 <realm-name>Protegido</realm-name>
 </login-config>
 
-<!--DEFINE UNA PAGINA DE ERROR PERSONALIZADO-->
 <error-page>
-<!--DEFINE EL TIPO DE ERROR, EN ESTE CASO 401, ERROR DE AUTENTICACION-->
 <error-code>401</error-code>
-<!--CUANDO SE DA EL ERROR 401, LA PAGINA REDIRIGE AL USUARIO A LA URL /INDEX.HTML-->
 <location>/index.html</location>
 </error-page>
 
-<!--DEFINICION/CREACION DE FILTRO-->
 <filter>
-<!--NOMBRE DESCRIPTIVO-->
 <display-name>login</display-name>
-<!--NOMBRE DE LA VARIABLE FILTRO-->
 <filter-name>Autenticate</filter-name>
-<!--NOMBRE DE LA CLASE EN EL .JAVA-->
 <filter-class>Autenticate</filter-class>
 </filter>
-<!--MAPEO DE FILTRO-->
 <filter-mapping>
-<!--REFERENCIA DEL FILTRO-->
 <filter-name>Autenticate</filter-name>
-<!--CUANDO SE RECIBE LA SOLICITUD DE PARA EL SERVLET LOGGERALUMNO, EL FILTRO SE EJECUTARA ANTES DE QUE SE PROCESE LA SOLICITUD-->
-<!--REFERENCIA DE LA DIRECCION URL A LA QUE SE APLICA EL FILTRO-->
 <servlet-name>LoggerAlumno</servlet-name>
 </filter-mapping>
 
-<!--CREACION DE SERVLET-->
 <servlet>
 <description></description>
-<!--NOMBRE DESCRIPTIVO-->
 <display-name>login</display-name>
-<!--NOMBRE DE LA VARIABLE SERVLET-->
 <servlet-name>LoggerAlumno</servlet-name>
-<!--NOMBRE DE LA CLASE EN EL .JAVA-->
 <servlet-class>LoggerAlumno</servlet-class>
 </servlet>
-<!--MAPEO DE SERVLET-->
 <servlet-mapping>
-<!--REFERENCIA DEL SERVLET-->
 <servlet-name>LoggerAlumno</servlet-name>
-<!--CUANDO SE RECIBA UNA SOLICITUD DE URL /login, SE EJECUTARA LOGGERALUMNO.JAVA-->
 <url-pattern>/login</url-pattern>
 </servlet-mapping>
+
 <servlet>
 <description></description>
 <display-name>detail</display-name>
@@ -95,6 +68,7 @@
 <servlet-name>DetailPage</servlet-name>
 <url-pattern>/detail</url-pattern>
 </servlet-mapping>
+
 <servlet>
 <description></description>
 <display-name>logout</display-name>
@@ -105,6 +79,7 @@
 <servlet-name>Logout</servlet-name>
 <url-pattern>/logout</url-pattern>
 </servlet-mapping>
+
 <servlet>
 <description></description>
 <display-name>login</display-name>
@@ -115,6 +90,7 @@
 <servlet-name>Logger0</servlet-name>
 <url-pattern>/logger0</url-pattern>
 </servlet-mapping>
+
 <servlet>
 <description></description>
 <display-name>login</display-name>
@@ -125,6 +101,7 @@
 <servlet-name>Logger1</servlet-name>
 <url-pattern>/logger1</url-pattern>
 </servlet-mapping>
+
 <servlet>
 <description></description>
 <display-name>login</display-name>

@@ -16,21 +16,24 @@ public class Authorization implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        // ESTABLECEMOS QUE LOS OBJETOS GENERICOS DE LA CLASE SERVLET USARAN HTTP
+        // DEFINIMOS LOS SERVLETS GENERICOS CON EL PROTOCOLO HTTP
         HttpServletRequest http_req = (HttpServletRequest) request;
         HttpServletResponse http_resp = (HttpServletResponse) response;
 
         // CAPTURAMOS LA SESION ACTUAL DEL CLIENTE
         HttpSession session = http_req.getSerssion();
 
-        // CON APACHE, USAMOS BASICCOOKIE PARA CREAR COOKIES
+        // USAMOS BASICCOOKIE PARA CREAR COOKIES
         BasicCookieStore cookies = new BasicCookieStore();
 
-        // SOLICITAMOS LOS DATOS DE AUTENTICACION DEL CLIENTE A ATRAVES DE:
+        // SOLICITAMOS LOS DATOS DE AUTENTICACION DEL CLIENTE
         String login = http_req.getRemoteUser();
+        
 
-        // UNA VEZ COMPROBADO EL CODIGO, LA EJECUCION DE CHAIN PERMITE CONTINUAR A LA
-        // SOLICITUD
+        //
+
+
+        // UNA VEZ COMPROBADO EL CODIGO, LA EJECUCION DE CHAIN PERMITE CONTINUAR A LA SOLICITUD
         chain.doFilter(request, response);
     }
 }
