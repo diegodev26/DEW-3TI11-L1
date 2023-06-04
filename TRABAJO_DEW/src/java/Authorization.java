@@ -46,7 +46,7 @@ public class Authorization implements Filter {
         String dir = "http://" + milogin + ":9090/CentroEducativo/login";
 
         // CREACION DEL CLIENTE Y POST DESTINO HTTP APACHE
-        HttpClient cliente = HttpClientBuilder.create().build();
+        CloseableHttpClient cliente = HttpClients.createDefault();
         HttpPost post = new HttpPost(dir);
 
         // ENCAPSULO EL JSON, AÑADO ENTITY Y LA CABECERA
@@ -55,7 +55,11 @@ public class Authorization implements Filter {
         post.setHeader("Content-Type", "application/json");
 
         // CONSULTA POST
-        HttpResponse execute = cliente.execute(dir);
+        CloseableHttpResponse execute = cliente.execute(dir);
+
+        // CERRAMOS RESPUESTA Y CLIENTE
+        execute.close();
+        cliente.close();
 
         // UNA VEZ COMPROBADO EL CODIGO, LA EJECUCION DE CHAIN PERMITE CONTINUAR A LA SOLICITUD
         chain.doFilter(request, response);
