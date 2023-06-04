@@ -15,6 +15,7 @@
 <welcome-file>default.jsp</welcome-file>
 </welcome-file-list>
 
+<!--
 <security-constraint>
 <web-resource-collection>
 <web-resource-name>DEWAlu</web-resource-name>
@@ -31,6 +32,7 @@
 <auth-method>BASIC</auth-method>
 <realm-name>Protegido</realm-name>
 </login-config>
+-->
 
 <error-page>
 <error-code>401</error-code>
@@ -44,7 +46,7 @@
 </filter>
 <filter-mapping>
 <filter-name>Authorization</filter-name>
-<servlet-name>INSERTAR ESPACIO PERSONAL ALUMNO</servlet-name>
+<servlet-name>MenuAlumno</servlet-name>
 </filter-mapping>
 
 <servlet>
