@@ -6,9 +6,9 @@
 
 - Funcionamiento y ejemplos de Servlets:
 
-https://docs.oracle.com/javaee/7/tutorial/servlets.htm
+  https://docs.oracle.com/javaee/7/tutorial/servlets.htm
 
-https://www.tutorialspoint.com/servlets/servlets-first-example.htm
+  https://www.tutorialspoint.com/servlets/servlets-first-example.htm
 
 - Libreria JSON-JAVA: https://github.com/stleary/JSON-java
 
