@@ -13,23 +13,18 @@ public class Logger0 extends HttpServlet {
 
 	public Logger0() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// OBTENEMOS Y GUARDAMOS LAS VARIABLES ESCRITAS Y ENVIADAS DESDE EL FORMULARIO
 		String dni = request.getParameter("dni");
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 
-		// INICIALIZAMOS EL PRINT EN PANTALLA Y DEFINIMOS QUE EL CONTENIDO DE LA
-		// RESPUESTA SE TRATA DE UN HTML
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");
 
-		// IMPRIMIMOS LA RESPUESTA EN PANTALLA
 		pw.println("<!DOCTYPE html>\n<html>\n<head>\n"
 				+ "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />");
 		pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", "
@@ -39,7 +34,6 @@ public class Logger0 extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
