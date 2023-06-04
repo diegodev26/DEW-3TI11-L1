@@ -39,13 +39,24 @@
 
 <filter>
 <display-name>login</display-name>
-<filter-name>Autenticate</filter-name>
-<filter-class>Autenticate</filter-class>
+<filter-name>Authorization</filter-name>
+<filter-class>Authorization</filter-class>
 </filter>
 <filter-mapping>
-<filter-name>Autenticate</filter-name>
-<servlet-name>LoggerAlumno</servlet-name>
+<filter-name>Authorization</filter-name>
+<servlet-name>INSERTAR ESPACIO PERSONAL ALUMNO</servlet-name>
 </filter-mapping>
+
+<servlet>
+<description></description>
+<display-name>login</display-name>
+<servlet-name>MenuAlumno</servlet-name>
+<servlet-class>MenuAlumno</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>MenuAlumno</servlet-name>
+<url-pattern>/login</url-pattern>
+</servlet-mapping>
 
 <servlet>
 <description></description>
