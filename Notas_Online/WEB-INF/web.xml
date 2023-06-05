@@ -34,11 +34,6 @@
 </login-config>
 -->
 
-<error-page>
-<error-code>401</error-code>
-<location>/index.html</location>
-</error-page>
-
 <filter>
 <display-name>login</display-name>
 <filter-name>Authorization</filter-name>

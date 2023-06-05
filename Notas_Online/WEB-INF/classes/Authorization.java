@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,11 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.hc.client5.http.ClientProtocolException;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.cookie.BasicCookieStore;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ContentType;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.json.JSONObject;
 
@@ -37,16 +40,19 @@ public class Authorization implements Filter {
         // DEFINIMOS LOS SERVLETS GENERICOS CON EL PROTOCOLO HTTP
         HttpServletRequest http_req = (HttpServletRequest) request;
         HttpServletResponse http_resp = (HttpServletResponse) response;
+        
+        // COMPROBACION DE QUE FUNCIONA EL FORMULARIO
+        String user = http_req.getParameter("user");
+        String password = http_req.getParameter("password");
+        
+        PrintWriter out = http_resp.getWriter();
+        out.println("usuario: " + user + " contraseña: " + password);
 
         // CAPTURAMOS LA SESION ACTUAL DEL CLIENTE
         HttpSession session = http_req.getSession();
 
         // USAMOS BASICCOOKIE PARA CREAR COOKIES
         BasicCookieStore cookies = new BasicCookieStore();
-
-        // SOLICITAMOS LOS DATOS DE AUTENTICACION DEL CLIENTE
-        String user = http_req.getParameter("user");
-        String password = http_req.getParameter("password");
 
         // AÑADO LOS PARAMETROS A LA SESION
         session.setAttribute("usr", user);
@@ -55,29 +61,46 @@ public class Authorization implements Filter {
         // CREO EL JSON PARA HACER LA SOLICITUD Y AÑADO LA INFORMACION
         JSONObject json = new JSONObject();
         json.put("dni", user);
-        json.put("pass", password);
+        json.put("password", password);
 
         // DEFINO LA URL DE LA SOLICITUD POST -> http://dew-milogin-2223.dsicv.upv.es:9090/CentroEducativo/login 
         String milogin = http_req.getLocalName();
         String dir = "http://" + milogin + ":9090/CentroEducativo/login";
 
         // CREACION DEL CLIENTE Y POST DESTINO HTTP APACHE
-        CloseableHttpClient cliente = HttpClients.createDefault();
-        HttpPost post = new HttpPost(dir);
-
-        // ENCAPSULO EL JSON, AÑADO ENTITY Y LA CABECERA
-        String jsonString = json.toString();
-        StringEntity entity = new StringEntity(jsonString);
-        post.setEntity(entity);
-        post.setHeader("Content-Type", "application/json");
-
-        // CONSULTA POST
-        CloseableHttpResponse execute = cliente.execute(post);
-
-        // CERRAMOS RESPUESTA Y CLIENTE
-        execute.close();
-        cliente.close();
-
+        try (final CloseableHttpClient cliente = HttpClients.custom()
+                .setDefaultCookieStore(cookies)
+                .build()) {
+        	// CONSULTA POST
+        	HttpPost post = new HttpPost(dir);
+        	
+        	// ENCAPSULO EL MENSAJE DE FORMATIO JSON, AÑADO ENTITY A EL PAQUETE DE ENVIO
+            String jsonString = json.toString();
+            // JSON COMPROBACION
+            out.println(jsonString);
+            StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_JSON);
+            post.setEntity(entity);
+            // EJECUTO LA SOLICITUD
+            try(CloseableHttpResponse execute = cliente.execute(post)){
+                // COMPROBACION CONEXION
+            	out.println(execute.getCode());
+                if(execute.getCode() != 200) {
+                	out.println("Parece que no ha sido posible establecer la conexion con el servidor");
+                	http_resp.sendRedirect("/Notas_Online/");
+                }else {out.println("Conexion realizada con exito");}
+                
+            	// CERRAMOS RESPUESTA Y CLIENTE
+                execute.close();
+                cliente.close();
+            } catch(ClientProtocolException e) {
+              	 e.printStackTrace();
+            }
+        } catch(ClientProtocolException e) {
+       	 e.printStackTrace();
+        }
+        // ON ESTE METODO DE LOGIN POR FORMULARIO HE VISTO QUE CUANDO UN USUARIO NO ESTA
+        // AUTORIZADO, SE DEVULVE UN ERROR 406. AHORA SOLO TENGO QUE DEFINIR EN EL WEB.XML
+        // QUE CUANDO RECIVA UN ERROR 406, SE REDIRIJA AL CLIENTE A UNA PAGINA ESPECIFICA
         // UNA VEZ COMPROBADO EL CODIGO, LA EJECUCION DE CHAIN PERMITE CONTINUAR A LA SOLICITUD
         chain.doFilter(request, response);
     }
