@@ -83,23 +83,24 @@ public class Authorization implements Filter {
             StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_JSON);
             post.setEntity(entity);
             // EJECUTO LA SOLICITUD
-            try(CloseableHttpResponse execute = cliente.execute(post)){
+            try(final CloseableHttpResponse execute = cliente.execute(post)){
                 // COMPROBACION CONEXION
             	//out.println(execute.getCode());
                 if(execute.getCode() != 200) {
                 	System.out.println("Parece que no ha sido posible establecer la conexion con el servidor");
                 	http_resp.sendRedirect("/Notas_Online/");
                 }else {System.out.println("Conexion realizada con exito");}
-                // CREAMOS LA KEY PARA LAS CONSULTAS
+                // CREAMOS LA KEY PARA LAS CONSULTAS Y GUARDAMOS COOKIES
                 String key = EntityUtils.toString(execute.getEntity());
+                List<Cookie> cookielist = cookies.getCookies();
                 session.setAttribute("key", key);
+                session.setAttribute("cookielist", cookielist);
             	// CERRAMOS RESPUESTA Y CLIENTE
                 execute.close();
                 cliente.close();
             } catch(ClientProtocolException e) {
               	 e.printStackTrace();
             } catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         } catch(ClientProtocolException e) {
