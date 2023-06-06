@@ -9,33 +9,36 @@
 
 <body>
     <div class="container">
-        <div class="row mb-10 row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative" style="background-color: #444444;">
-            <div>
-                <h1 class="display-4 font-italic" style="color: white">Informaci&oacute;n detallada</h1>
-            </div>
-            <div>
-                <h5 style="color: white">En esta p&aacute;gina se muestra la información detallada del alumno y su(s) nota(s)</h1>
-            </div>
+        <div class="row mb-10 row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative"
+            style="background: linear-gradient(to right, black, white)">
+            <h1 class="display-4" style="color: white">Informaci&oacute;n Detallada</h1>
+            <h2 class="lead my-3" style="color: white">En esta p&aacute;gina se muestra la información detallada del
+                alumno y su(s) nota(s)</h2>
         </div>
-        <div class="row mb-10 flex-md-row mb-4 shadow-sm h-md-250 w-md-100" style="border: solid thin black">
+    </div>
+    <div class="container">
+        <div
+            class="row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative">
             <div>
-                <div>
-                    <p>apellido_alumno, nombre_alumno (dni)</p>
-                </div>
-                <div>
-                    <p>[Matriculad@ en: detalles_json.getString(nombre) (acronimo)]</p>
-                </div>
-                <div>
-                    <p>Nombre: apellido_alumno, nombre_alumno, DNI: dni</p>
-                </div>
-                <div>
-                    <p id="calificacion">Nota: nota_asignatura</p>
-                </div>
+                <p>apellido_alumno, nombre_alumno (dni)</p>
+            </div>
+            <div>
+                <p>[Matriculad@ en: detalles_json.getString(nombre) (acronimo)]</p>
+            </div>
+            <div>
+                <p>Nombre: apellido_alumno, nombre_alumno, DNI: dni</p>
+            </div>
+            <div>
+                <p id="calificacion">Nota: nota_asignatura</p>
             </div>
         </div>
         <form action="login">
-            <button type="submit" class="btn btn-outline-dark" id="loginAlumno">Atras</button>
+            <button type="submit" class="btn btn-dark" id="loginAlumno">Atras</button>
         </form>
+        <div class="dropdown-divider mt-4"></div>
+    </div>
+    <div class="container-fluid text-center footer">
+        <p>Trabajo en grupo realizado para la asignatura Desarrollo Web | Curso 2022-2023</p>
     </div>
 </body>
 

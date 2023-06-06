@@ -9,61 +9,39 @@
 
 <body>
     <div class="container">
-        <div class="row mb-10 row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative " style="background-color: #444444;">
-                <h1 class="display-4 font-italic" style="color: white">Inicio</h1>
-                <h2 class="lead my-3" style="color: white">Esta p&aacute;gina muestra las asignaturas en las que nombre_alumno apellido_alumno est&aacute; matriculad@.</h2>
+        <div class="row mb-10 row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative "
+            style="background: linear-gradient(to right, black, white)">
+            <h1 class="display-4" style="color: white">Men&uacute; de Alumno</h1>
+            <h2 class="lead my-3" style="color: white">Esta p&aacute;gina muestra las asignaturas en las que
+                nombre_alumno apellido_alumno est&aacute; matriculad@.</h2>
         </div>
     </div>
-    <div class="container rounded" >
+    <div class="container">
         <div class="row mb-2">
-            <div class="col-md-6">
-              <div class="row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    
+            <div class="col-md-12">
+                <div
+                    class="row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 w-md-100 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+
                         <form action="detail" method="GET">
                             <input type="hidden" name="asig" value=acronimo>
                             <input type="hidden" name="dni" value=dni>
                             <input type="hidden" name="nombre" value=ombre_alumno>
                             <input type="hidden" name="apellido" value=apellido_alumno>
-                            <button type="submit" class="btn btn-link"> Asignaturas </button>
+                            <button type="submit" class="btn btn-link">Asignaturas</button>
                         </form>
-                    
+
+                    </div>
                 </div>
-              </div>
-            
-                <div class="col p-4 d-flex flex-column position-static" >
-                    <form action="logout">
-                        <button type="submit" class="btn btn-outline-dark" id="logout">Cerrar Sesi&oacute;n</button>
-                    </form>
-                </div>
-              
             </div>
-        
-            <div class="col-md-6">
-                <div class="row no-gutters border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div class="col p-4 d-flex flex-column position-static">
-                    <div class="square">
-                        <h5>Gupo DEW-3TI11-L1</h5>
-                        <ol>
-                            <li>Pablo Cerd&aacute; Puche</li>
-                            <li>Diego C&oacute;rdoba Serra</li>
-                            <li>Jorge G&aacute;ndara Sanchis</li>
-                            <li>Francisco Lozano Mellado</li>
-                            <li>Jos&eacute; Andr&eacute;s Penad&eacute;s Cervell&oacute;</li>
-                        </ol>
-                </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-    </div>
+            <form action="logout">
+                <button type="submit" class="btn btn-dark" id="logout">Cerrar Sesi&oacute;n</button>
+            </form>
+            <div class="dropdown-divider mt-4"></div>
+        </div>
+        <div class="container-fluid text-center footer">
+            <p>Trabajo en grupo realizado para la asignatura Desarrollo Web | Curso 2022-2023</p>
+        </div>
 </body>
 
 </html>
-
-
-
-
-
-
-
