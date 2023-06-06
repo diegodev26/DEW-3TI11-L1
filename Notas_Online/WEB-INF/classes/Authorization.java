@@ -18,6 +18,8 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.json.JSONObject;
 
@@ -45,8 +47,8 @@ public class Authorization implements Filter {
         String user = http_req.getParameter("user");
         String password = http_req.getParameter("password");
         
-        PrintWriter out = http_resp.getWriter();
-        out.println("usuario: " + user + " contraseña: " + password);
+        // PrintWriter out = http_resp.getWriter();
+        // out.println("usuario: " + user + " contraseña: " + password);
 
         // CAPTURAMOS LA SESION ACTUAL DEL CLIENTE
         HttpSession session = http_req.getSession();
@@ -77,24 +79,29 @@ public class Authorization implements Filter {
         	// ENCAPSULO EL MENSAJE DE FORMATIO JSON, AÑADO ENTITY A EL PAQUETE DE ENVIO
             String jsonString = json.toString();
             // JSON COMPROBACION
-            out.println(jsonString);
+            //out.println(jsonString);
             StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_JSON);
             post.setEntity(entity);
             // EJECUTO LA SOLICITUD
             try(CloseableHttpResponse execute = cliente.execute(post)){
                 // COMPROBACION CONEXION
-            	out.println(execute.getCode());
+            	//out.println(execute.getCode());
                 if(execute.getCode() != 200) {
-                	out.println("Parece que no ha sido posible establecer la conexion con el servidor");
+                	System.out.println("Parece que no ha sido posible establecer la conexion con el servidor");
                 	http_resp.sendRedirect("/Notas_Online/");
-                }else {out.println("Conexion realizada con exito");}
-                
+                }else {System.out.println("Conexion realizada con exito");}
+                // CREAMOS LA KEY PARA LAS CONSULTAS
+                String key = EntityUtils.toString(execute.getEntity());
+                session.setAttribute("key", key);
             	// CERRAMOS RESPUESTA Y CLIENTE
                 execute.close();
                 cliente.close();
             } catch(ClientProtocolException e) {
               	 e.printStackTrace();
-            }
+            } catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         } catch(ClientProtocolException e) {
        	 e.printStackTrace();
         }
