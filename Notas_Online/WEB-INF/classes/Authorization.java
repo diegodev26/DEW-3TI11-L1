@@ -44,11 +44,11 @@ public class Authorization implements Filter {
         // DEFINIMOS LOS SERVLETS GENERICOS CON EL PROTOCOLO HTTP
         HttpServletRequest http_req = (HttpServletRequest) request;
         HttpServletResponse http_resp = (HttpServletResponse) response;
-        
+
         // COMPROBACION DE QUE FUNCIONA EL FORMULARIO
         String user = http_req.getParameter("user");
         String password = http_req.getParameter("password");
-        
+
         // PrintWriter out = http_resp.getWriter();
         // out.println("usuario: " + user + " contraseña: " + password);
 
@@ -61,60 +61,67 @@ public class Authorization implements Filter {
         // AÑADO LOS PARAMETROS A LA SESION
         session.setAttribute("usr", user);
         session.setAttribute("pass", password);
-        
+
         // CREO EL JSON PARA HACER LA SOLICITUD Y AÑADO LA INFORMACION
         JSONObject json = new JSONObject();
         json.put("dni", user);
         json.put("password", password);
 
-        // DEFINO LA URL DE LA SOLICITUD POST -> http://dew-milogin-2223.dsicv.upv.es:9090/CentroEducativo/login 
+        // DEFINO LA URL DE LA SOLICITUD POST ->
+        // http://dew-milogin-2223.dsicv.upv.es:9090/CentroEducativo/login
         String milogin = http_req.getLocalName();
         String dir = "http://" + milogin + ":9090/CentroEducativo/login";
 
         // CREACION DEL CLIENTE Y POST DESTINO HTTP APACHE
         final CloseableHttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
-        
-        //------------------------------------------------------
+
+        // ------------------------------------------------------
         // METODO DE CLIENTE GUARDADO EN SESION
-        // HttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
+        // HttpClient cliente =
+        // HttpClients.custom().setDefaultCookieStore(cookies).build();
         // session.setAttribute("cliente", cliente);
-    	//------------------------------------------------------
-        
+        // ------------------------------------------------------
+
         // CONSULTA POST
-    	HttpPost post = new HttpPost(dir);
-    	
-    	// ENCAPSULO EL MENSAJE DE FORMATIO JSON, AÑADO ENTITY A EL PAQUETE DE ENVIO
+        HttpPost post = new HttpPost(dir);
+
+        // ENCAPSULO EL MENSAJE DE FORMATIO JSON, AÑADO ENTITY A EL PAQUETE DE ENVIO
         String jsonString = json.toString();
         // JSON COMPROBACION
-        //out.println(jsonString);
+        // out.println(jsonString);
         StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_JSON);
         post.setEntity(entity);
         // EJECUTO LA SOLICITUD
         CloseableHttpResponse execute = cliente.execute(post);
         // COMPROBACION CONEXION
-    	//out.println(execute.getCode());
-        if(execute.getCode() != 200) {
-        	System.out.println("Parece que no ha sido posible establecer la conexion con el servidor");
-        	http_resp.sendRedirect("/Notas_Online/");
-        }else {System.out.println("Conexion realizada con exito");}
+        // out.println(execute.getCode());
+        if (execute.getCode() != 200) {
+            System.out.println("Parece que no ha sido posible establecer la conexion con el servidor");
+            http_resp.sendRedirect("/Notas_Online/");
+        } else {
+            System.out.println("Conexion realizada con exito");
+        }
         // CREAMOS LA KEY PARA LAS CONSULTAS
         String key;
-		try {
-			key = EntityUtils.toString(execute.getEntity());
-	        session.setAttribute("key", key);
-		} catch (ParseException | IOException e) {
-			e.printStackTrace();
-		}
-		
-		session.setAttribute("cookies", cookies);
-    	// CERRAMOS RESPUESTA Y CLIENTE
+        try {
+            key = EntityUtils.toString(execute.getEntity());
+            session.setAttribute("key", key);
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
+
+        session.setAttribute("cookies", cookies);
+        // CERRAMOS RESPUESTA Y CLIENTE
         execute.close();
         // cliente.close();
 
         // ON ESTE METODO DE LOGIN POR FORMULARIO HE VISTO QUE CUANDO UN USUARIO NO ESTA
-        // AUTORIZADO, SE DEVULVE UN ERROR 406. AHORA SOLO TENGO QUE DEFINIR EN EL WEB.XML
-        // QUE CUANDO RECIVA UN ERROR 406, SE REDIRIJA AL CLIENTE A UNA PAGINA ESPECIFICA
-        // UNA VEZ COMPROBADO EL CODIGO, LA EJECUCION DE CHAIN PERMITE CONTINUAR A LA SOLICITUD
+        // AUTORIZADO, SE DEVULVE UN ERROR 406. AHORA SOLO TENGO QUE DEFINIR EN EL
+        // WEB.XML
+        // QUE CUANDO RECIVA UN ERROR 406, SE REDIRIJA AL CLIENTE A UNA PAGINA
+        // ESPECIFICA
+        // UNA VEZ COMPROBADO EL CODIGO, LA EJECUCION DE CHAIN PERMITE CONTINUAR A LA
+        // SOLICITUD
         chain.doFilter(request, response);
     }
 }
