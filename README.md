@@ -1,6 +1,7 @@
 # DOCUMENTACION
 
-- Documentacion Apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
+- Documentacion1 Apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
+- Documentacion2 Apache: https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html
 
 - Documentacion XML: https://docs.oracle.com/cd/E13222_01/wls/docs81/webapp/web_xml.html
 
