@@ -27,12 +27,12 @@
 <role-name>rolalu</role-name>
 </auth-constraint>
 </security-constraint>
+-->
 
 <login-config>
 <auth-method>BASIC</auth-method>
 <realm-name>Protegido</realm-name>
 </login-config>
--->
 
 <filter>
 <display-name>login</display-name>
@@ -79,12 +79,12 @@
 
 <servlet>
 <description></description>
-<display-name>login</display-name>
-<servlet-name>Logger2</servlet-name>
-<servlet-class>Logger2</servlet-class>
+<display-name>logout</display-name>
+<servlet-name>Logout</servlet-name>
+<servlet-class>Logout</servlet-class>
 </servlet>
 <servlet-mapping>
-<servlet-name>Logger2</servlet-name>
-<url-pattern>/logger2</url-pattern>
+<servlet-name>Logout</servlet-name>
+<url-pattern>/logout</url-pattern>
 </servlet-mapping>
 </web-app>
