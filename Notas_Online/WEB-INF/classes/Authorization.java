@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.hc.client5.http.ClientProtocolException;
-import org.apache.hc.client5.http.classic.HttpClient;
-import org.apache.hc.client5.http.classic.methods.HttpGet;
+
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.cookie.BasicCookieStore;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -58,9 +56,16 @@ public class Authorization implements Filter {
         // USAMOS BASICCOOKIE PARA CREAR COOKIES
         BasicCookieStore cookies = new BasicCookieStore();
 
+        
+        // HAY UN PROBLEMA CON LAS SESIONES
+        // SOLUCION->VERIFICAMOS SI EL USUARIO YA ESTA INICIADO PORQUE SI LO ESTA, Y VOLVEMO A AUTENCIAT
+        // DA UN ERROR 500 YA QUE AL VOLVER A LA MENU ALMUNO NO PUEDE AUTENTICAR Y NO PUEDE ACCEDER A RECURSOS
+        // AUTENTICAMOS SOLO CUANDO LA SESION SEA NUEVA
+        
+        if(session.isNew()) {
         // AÑADO LOS PARAMETROS A LA SESION
-        session.setAttribute("usr", user);
-        session.setAttribute("pass", password);
+        session.setAttribute("user", user);
+        session.setAttribute("password", password);
 
         // CREO EL JSON PARA HACER LA SOLICITUD Y AÑADO LA INFORMACION
         JSONObject json = new JSONObject();
@@ -114,7 +119,8 @@ public class Authorization implements Filter {
         // CERRAMOS RESPUESTA Y CLIENTE
         execute.close();
         // cliente.close();
-
+        }
+        
         // ON ESTE METODO DE LOGIN POR FORMULARIO HE VISTO QUE CUANDO UN USUARIO NO ESTA
         // AUTORIZADO, SE DEVULVE UN ERROR 406. AHORA SOLO TENGO QUE DEFINIR EN EL
         // WEB.XML
