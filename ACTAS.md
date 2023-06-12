@@ -352,3 +352,99 @@ Se han revisado todos los archivos y se han modificado algunos detalles estétic
 ### En referencia al profesor
 ----
 Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor.
+
+
+
+## Acta de Reunión nº9
+
+### Preámbulo
+---
+La reunión se realizó en remoto a través de Discord el día martes **12/06/2023**
+
+En la reunión han participado:
+- Pablo Cerdá Puche
+- Diego Córdoba Serra
+- Jorge Gandara Sanchis
+- Francisco Lozano Mellado
+- José Andrés Penadés Cervelló
+El alumno firmante es:
+- Francisco Lozano Mellado
+
+### Resumen
+---
+En esta reunión se realizaron las tareas correspondientes a la entrega final del trabajo de prácticas, es decir, las sesiones 4 y 5 de prácticas. En ella, se realizaron las operaciones derivadas de alumno y profesor. 
+
+
+### Desarrollo
+---
+
+**Operación derivada: Página formateada de certificado**
+
+Se ha dotado al alumno con la capacidad de generar una página formateada para su impresión, con una relación de asignaturas y calificaciones obtenidas, a modo de certificado, incluyendo en la página la fotografía de la alumna
+
+Para ello, en el servlet menuAlumno.java se ha implementado un formulario que llama al servlet certificado.java.  
+
+```java
+	out.println("<form action='Certificado' method='GET'>");
+    		out.println("    <input type='hidden' name='nomAlu' value='" + nombre + "'/>");
+    		out.println("    <input type='hidden' name='apellidosAlu' value='" + apellidos + "'/>");
+    		out.println("    <input type='hidden' name='dniAlu' value='" + dni + "'/>");
+    		out.println("    <input type='submit' class='btn btn-link btn-sm' value='Generar Certificado Acad&eacute;mico'/>");
+    		out.println("</form>");
+```
+
+En el comentado servlet certificado.java aparece una información del alumn@, el nombre y apellidos del alumno y su dni. Para reutilizar peticiones, en el servlet menuAlumno.java se utilizan como atributos hidden la información del alumno (como se puede observar arriba) y en certificado.java se recuperan mediante el uso de getParameter
+
+```java
+	String nomAlu = request.getParameter("nomAlu");
+	String apellidos = request.getParameter("apellidosAlu");
+	String dniAlu = request.getParameter("dniAlu");
+``` 
+Además, aparece información sobre las asignaturas en las que está matricululado el alumno, entre la cual destacamos el nombre de la asignatura, el acrónimo de la asignatura y la nota del alumnno en dicha asignatura.
+Para la obtención de dicha información, se realiza una petición para obtener las asignaturas del alumno en cuestión. Para poder tratarse, estas son convertidas en String y posteriormente en un JSONArray.
+
+```java
+	//URL
+	String milogin = request.getLocalName(); 
+    String dir_asignaturas = "http://" + milogin + ":9090/CentroEducativo/alumnos/" + user + "/asignaturas" + "?key=" + key;
+	
+	// GET
+        HttpGet get2 = new HttpGet(dir_asignaturas);
+
+        // EJECUTO LA SOLICITUD
+        final CloseableHttpResponse execute2 = cliente.execute(get2);
+
+        // USAMOS JSONARRAY PARA PODER MOSTRAR LAS ASIGNATURAS
+        try {
+        	// String asignaturas = EntityUtils.toString(execute2.getEntity()).replaceAll("[\\[\\]]", "");
+        	String asignaturas = EntityUtils.toString(execute2.getEntity());
+        	// out.println(asignaturas);
+        	// CONVERSION DE OBJECT A ARRAY
+        	JSONArray array = new JSONArray(asignaturas);
+	
+```
+Una vez obtenido el JSONArray con las asignaturas, mediante el uso de un bucle se obtiene la información comentada anteriormente. 
+```java
+	for(int i = 0; i < array.length(); i++) {
+        		        	
+                JSONObject jsonObject = array.getJSONObject(i);
+        		out.println("                    <tr><td>" + jsonObject.getString("acronimo") + " </td><td>" + jsonObject.getString("asignatura") + "</td><td>" + jsonObject.getString("nota") + "</td></tr>");
+        	}
+    		out.println("                </table>");
+    		out.println("            </div>");
+    		out.println("        </div>");
+    		out.println("    </div>");
+```
+
+Tambien aparece una imagen del avatar del/la alumn@, que
+
+
+**Operación derivada: Cálculo de nota media**
+Se ha dotado al profesor con la capacidad de calcular la nota media de una de las asignaturas que imparte. 
+
+**Operación derivada AJAX: Interacción de consulta/modificación de nota**
+Se ha dotado al profesor con la capacidad de consultar y/o modificar la nota de cada uno de los alumnos en cada una de las asignaturas que imparte. 
+
+### En referencia al profesor
+----
+Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor.
