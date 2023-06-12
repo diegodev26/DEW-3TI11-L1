@@ -15,45 +15,45 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<xs:schema xmlns="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://tomcat.apache.org/xml"
-           xmlns:users="http://tomcat.apache.org/xml"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
-           version="1.0">
-  <xs:element name="tomcat-users">
-    <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="role">
-          <xs:complexType>
-            <xs:attribute name="rolename" use="required" type="users:entityname" />
-            <xs:attribute name="description" type="xs:string" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="group">
-          <xs:complexType>
-            <xs:attribute name="groupname" use="required" type="users:entityname" />
-            <xs:attribute name="description" type="xs:string" />
-            <xs:attribute name="roles" type="xs:string" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="user">
-          <xs:complexType>
-            <xs:attribute name="username" use="required" type="users:entityname" />
-            <xs:attribute name="fullname" type="xs:string" />
-            <xs:attribute name="password" type="xs:string" />
-            <xs:attribute name="roles" type="xs:string" />
-            <xs:attribute name="groups" type="xs:string" />
-          </xs:complexType>
-        </xs:element>
-      </xs:choice>
-      <xs:attribute name="version" type="xs:string" />
-    </xs:complexType>
-  </xs:element>
-  <xs:simpleType name="entityname">
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1"/>
-    </xs:restriction>
-  </xs:simpleType>
-</xs:schema>
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+<!--
+  By default, no user is included in the "manager-gui" role required
+  to operate the "/manager/html" web application.  If you wish to use this app,
+  you must define such a user - the username and password are arbitrary.
+
+  Built-in Tomcat manager roles:
+    - manager-gui    - allows access to the HTML GUI and the status pages
+    - manager-script - allows access to the HTTP API and the status pages
+    - manager-jmx    - allows access to the JMX proxy and the status pages
+    - manager-status - allows access to the status pages only
+
+  The users below are wrapped in a comment and are therefore ignored. If you
+  wish to configure one or more of these users for use with the manager web
+  application, do not forget to remove the <!.. ..> that surrounds them. You
+  will also need to set the passwords to something appropriate.
+-->
+<!--
+  <user username="admin" password="<must-be-changed>" roles="manager-gui"/>
+  <user username="robot" password="<must-be-changed>" roles="manager-script"/>
+-->
+<!--
+  The sample user and role entries below are intended for use with the
+  examples web application. They are wrapped in a comment and thus are ignored
+  when reading this file. If you wish to configure these users for use with the
+  examples web application, do not forget to remove the <!.. ..> that surrounds
+  them. You will also need to set the passwords to something appropriate.
+-->
+  <role rolename="rolalu"/>
+  <user username="12345678W" password="123456" roles="rolalu"/>
+  <user username="23456387R" password="123456" roles="rolalu"/>
+  <user username="34567891F" password="123456" roles="rolalu"/>
+  <user username="93847525G" password="123456" roles="rolalu"/>
+  <role rolename="rolpro"/>
+  <user username="23456733H" password="123456" roles="rolpro"/>
+  <user username="10293756L" password="123456" roles="rolalu"/>
+  <user username="06374291A" password="123456" roles="rolalu"/>
+  <user username="65748923M" password="123456" roles="rolalu"/>
+</tomcat-users>
