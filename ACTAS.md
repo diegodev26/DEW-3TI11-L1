@@ -379,8 +379,11 @@ En esta reunión se realizaron las tareas correspondientes a la entrega final de
 ---
 
 **Operación derivada: Página formateada de certificado**
-
 Se ha dotado al alumno con la capacidad de generar una página formateada para su impresión, con una relación de asignaturas y calificaciones obtenidas, a modo de certificado, incluyendo en la página la fotografía de la alumna
+
+- Se ha implementado la op con el servlet certificado.java y se llama desde menuAlumno en un formulario
+- Se le pasa como atributos hidden (para reultilizar peticiones) nombre del alumno, apellidos y dni
+- En certificado.java: peticion para obtener las asignaturas (array de objetos json) para introducirlos en la tabla
 
 Para ello, en el servlet menuAlumno.java se ha implementado un formulario que llama al servlet certificado.java.  
 
@@ -436,15 +439,34 @@ Una vez obtenido el JSONArray con las asignaturas, mediante el uso de un bucle s
     		out.println("    </div>");
 ```
 
-Tambien aparece una imagen del avatar del/la alumn@, que
-
 
 **Operación derivada: Cálculo de nota media**
 Se ha dotado al profesor con la capacidad de calcular la nota media de una de las asignaturas que imparte. 
 
+
 **Operación derivada AJAX: Interacción de consulta/modificación de nota**
 Se ha dotado al profesor con la capacidad de consultar y/o modificar la nota de cada uno de los alumnos en cada una de las asignaturas que imparte. 
+Para ello, dentro del menú detallado de profesor se ga añadido un formulario con un botón que nos conduce al servlet seleccionAsig.java. 
+```java
+	 <button type='submit' class='btn btn-link'>Modificar nota Asignatura-Alumno</button>"
+``` 
+
+En seleccionAsig.java, podemos ver una lista de asignaturas con un opción de selección (radio). Una vez seleccionada la asignatura de la que queremos consultar o medificar una nota, seleccionamos "Seleccionar Asignatura" que nos conducirá al servlet alumnosDeAsig.java.
+```java
+	 <input type='radio' name='opcionAlu' value=12345678W required>12345678W
+	  <p><button type='submit' class='btn btn-link'>Siguiente</button></p>
+<br>
+```
+
+A continuación, en alumnosDeAsig.java, nos aparecen los DNIs de los alumnos matriculados en dicha asignatura y su respectiva nota en dicha asignatura. De igual forma que la elección de las asignaturas anterior, hay una opción de selección para seleccionar al alumno. 
+Una vez seleccionado el alumno, seleccionamos siguiente que nos conducirá al servlet indicarNota.java.
+En indicarNota.java, usaremos un imput de tipo number donde podremos indicar la nueva nota del alumno para esa asignatura.
+```java
+	 <input type='number' required='required 'name='nota'>
+```
+Una vez establecida la nota en el imput, mediante el enlace Finalizar se redirige a setNota. Es importante destacar el elemento required, ya que si no se especifica puede fallar. 
 
 ### En referencia al profesor
 ----
 Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor.
+
