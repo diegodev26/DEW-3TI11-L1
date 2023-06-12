@@ -27,8 +27,8 @@ En index.html se abre un formulario y se introducen los datos de usuario para in
 
 ```
 
-## Filtro de autenticacion
-El filtro de autorizacion Authorization.java se ejecuta en el instante en el que el usuario cliente accede a un servlet al cual se le ha mapeado dicho filtro:
+## Filtro de autenticación
+El filtro de autorización Authorization.java se ejecuta en el instante en el que el usuario cliente accede a un servlet al cual se le ha mapeado dicho filtro:
 ```xml
  <filter>
     <filter-name>Authorization</filter-name>
@@ -41,18 +41,18 @@ El filtro de autorizacion Authorization.java se ejecuta en el instante en el que
   </filter-mapping>
 ```
 
-La interfaz del filtro implementa tres metodos, el init() para establecer valores inicializados por defecto, destroy() para liberar recursos asociados a el filtro y por ultimo el campo mas importante doFilter() que se encarga del proceso de filtrado de datos.
+La interfaz del filtro implementa tres métodos, el init() para establecer valores inicializados por defecto, destroy() para liberar recursos asociados al filtro y por último el campo más importante doFilter() que se encarga del proceso de filtrado de datos.
 
-En nuestro metodo doFilter(), en primera instacia nos encargamos de definir el protocolo http que empleamos en los servlets y capturasmo las credenciales del usuario. Inciamos la sesion y un almacen de cookies.
+En nuestro método doFilter(), en primera instancia nos encargamos de definir el protocolo http que empleamos en los servlets y capturado las credenciales del usuario. Iniciamos la sesión y un almacén de cookies.
 
-Durante la fase de comprobacion y debugging, detectamos que al disponer de un boton de "Atras" en el menu de incio de los usuarios(alumno y profesor), el filtro aplicado a este, se ejecutaba cada vez que se accedia al servlet. Esto inciciaba una nueva ejecucion del protocolo de autenticacion, obtencio de key, etc, lo cual suponia un problema para la persistencia de las sesion y datos. Por ello, decidimo definier una condicion de autneticacion solo si la sesion era nueva:
+Durante la fase de comprobación y debugging, detectamos que al disponer de un botón de "Atrás" en el menú de inicio de los usuarios(alumno y profesor), el filtro aplicado a este, se ejecutaba cada vez que se accedía al servlet. Esto iniciaba una nueva ejecución del protocolo de autenticación, obtención de key, etc., lo cual suponía un problema para la persistencia de la sesión y datos. Por ello, decidimos definir una condición de autenticación solo si la sesión era nueva:
 ```java
 if(session.isNew()) {
     ...
     chain.doFilter(request, response);
 }
 ```
-Esto originaba un nuevo problema, ya que como bien sabemos el chain.doFilter() el el callback encargado de proseguir la ejecucion del servlet llamado inicialmente, el problema es que si el usuario ya dispone de una sesion, esta debia pasar por alto todo el codigo hasta ejecutar el chain y por otro lado si la sesion era nueva, esta debia comprobar las credenciales y decidir si continua con chain o se suspende el filtro. Por esto, primero establecemos el else por si el cliente ya tiene una sesion y si es nueva, comprobamos a traves del codigo que retorna execute, si es 200 guarda datos en la sesion y cookies y continua con chain, de lo contrario, si no es 200 se invalida la sesion y se reedirige al usuario a la pantalla de inicio.
+Esto originaba un nuevo problema, ya que como bien sabemos el chain.doFilter() es el callback encargado de proseguir la ejecución del servlet llamado inicialmente, el problema es que si el usuario ya dispone de una sesion, esta debia pasar por alto todo el código hasta ejecutar el chain y, por otro lado, si la sesión era nueva, esta debía comprobar las credenciales y decidir si continúa con chain o se suspende el filtro. Por esto, primero establecemos el else por si el cliente ya tiene una sesión y si es nueva, comprobamos a través del código que retorna execute, si es 200 guardas datos en la sesión y cookies y continua con chain, de lo contrario, si no es 200 se invalida la sesión y se redirige al usuario a la pantalla de inicio.
 ```java
 if(session.isNew()) {
     ...
@@ -66,11 +66,11 @@ if(session.isNew()) {
 } else {chain.doFilter(request, response);}
 ```
 
-Otro detalle a destacar para que la sesion del cliente este controlada correctamente es almacenar las cookies del cliente en cada solicitud correctamente mediante:
+Otro detalle a destacar para que la sesión del cliente esté controlada correctamente es almacenar las cookies del cliente en cada solicitud correctamente mediante:
 ```java
 final CloseableHttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
 ```
-A parte, almacenamos la clave(key) recibida en el post de login, en la session del cliente y tambien almacenamos las cookies capturadas en las solicitudes. Este proeso nos ha sido crucial para poder realizar solicitudes posteriores. En otro servlet, para crear un clinete el cual tenga asignado la misma key que el clietne de la autenticacion, añadimos las cookies almacenadas en la sesion al cliente nuevo, de no ser asi, el servidor no detectava al usuario con autenticacion asociada a esa clave:
+Aparte, almacenamos la clave(key) recibida en el post de login, en la sesión del cliente y también almacenamos las cookies capturadas en las solicitudes. Este proceso nos ha sido crucial para poder realizar solicitudes posteriores. En otro servlet, para crear un cliente, el cual tenga asignado la misma key que el cliente de la autenticación, añadimos las cookies almacenadas en la sesión al cliente nuevo, de no ser así, el servidor no detectaba al usuario con autenticación asociada a esa clave:
 ```java
 // Servlet 2
 BasicCookieStore cookies_lts = (BasicCookieStore) session.getAttribute("cookies");
@@ -83,7 +83,7 @@ for (Cookie cookie : cookielist) {
 ```
 
 ## Explicacion paso a paso autenticacion
-En el método de autenticar obtenemos las credenciales del formulario e inicializamos la session, utilizamos el objeto el Basic cookie store para almacenar cookies en cada consulta.
+En el método de autenticar obtenemos las credenciales del formulario e inicializamos la sesión, utilizamos el objeto el Basic cookie store para almacenar cookies en cada consulta.
 ```java
 String user = http_req.getParameter("user");
 String password = http_req.getParameter("password");
@@ -136,7 +136,7 @@ execute.close();
 Una vez se comprueba que las credenciales son correctas, el usuario pasa a la ventana del menú principal de su rol.
 En este menú hacemos el mismo uso de la clave de usuario para almacenar las cookies.
 Se construye la página html usando los "out.println()".
-Hemos añadido el botón de cerrar sesión que ejecuta un action el cual es un servlet que invalida la sesión y redirige al index.html
+Hemos añadido el botón de cerrar sesión que ejecuta una acción, el cual es un servlet que invalida la sesión y redirige al index.html
 
 En Menú Alumno, el alumno ve las asignaturas en las que está matriculado, y clicando en cada una puede ver la información y su nota de la asignatura, redirigiendo a la página detailAlu. También encuentra un enlace para generar su Certificado Académico, el cual redirige a la página Certificado.
 Los datos que se necesitan para construir la página del MenuAlumno, como lo son asignaturas, dni, nombre y apellidos del usuario(datos personales) se obtienen mediante un objeto JSON que crearemos a partir del parámetro info. A partir de este objeto, podemos extraer los datos anteriormente nombrados de la siguiente manera:
@@ -154,7 +154,7 @@ session.setAttribute("apellidos", apellidos);
 ```
 
 Con estos datos obtenidos, la creación de la página se efectúa con total normalidad, haciendo uso de los anteriormente citados, hasta que llegamos a la lista de notas y asignaturas.
-Éstas requerirán de otra solicitud para la cual obtendremos primero la URL de CentroEducativo donde se encuentran y haremos un Get sobre ésta y ejecutaremos la solicitud obtenida.
+Éstas requerirán de otra solicitud para la cual obtendremos primero la URL de CentroEducativo donde se encuentran y haremos un Get sobre esta y ejecutaremos la solicitud obtenida.
 ```java
 String dir_asignaturas = "http://" + milogin + ":9090/CentroEducativo/alumnos/" + user + "/asignaturas" + "?key=" + key;
 HttpGet get2 = new HttpGet(dir_asignaturas);
