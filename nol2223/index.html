@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notas OnLine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <style>
+        #welcome {
+            background: linear-gradient(to right, black, white);
+            color: white;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .white {
+            color: white;
+        }
+
+        .black {
+            color: black;
+        }
+
+        .square {
+            background-color: lightgray;
+            font-size: 15px;
+            padding: 1rem;
+        }
+
+        .separator {
+            border-top: 1px solid lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid text-center py-5" id="welcome">
+        <h1 class="white">Bienvenid@ a Notas OnLine</h1>
+        <h4 class="white">Web para consultar tus notas</h4>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 black">
+                <div>
+                    <form>
+                        <br>
+                        <h5>Si eres ALUMNADO podr&aacute;s consultar tus calificaciones.<br>Debes disponer de
+                            tus datos identificativos para acceder.</h5>
+                        <!--Boton para Alumno-->
+                        <button type="button" class="btn btn-dark" data-toggle="modal"
+                            data-target="#alumno">Ingresar</button>
+                        <br>
+                    </form>
+                </div>
+                <div>
+                    <form>
+                        <br>
+                        <h5>Si eres PROFESORADO podr&aacute;s consultar o modificar las calificaciones en tus
+                            asignaturas.<br>Debes disponer de tus datos identificativos para acceder.</h5>
+                        <!--Boton para Profesor-->
+                        <button type="button" class="btn btn-dark" data-toggle="modal"
+                            data-target="#profesor">Ingresar</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="square">
+                    <h6>Gupo DEW-3TI11-L1</h6>
+                    <ol>
+                        <li>Pablo Cerd&aacute; Puche</li>
+                        <li>Diego C&oacute;rdoba Serra</li>
+                        <li>Jorge G&aacute;ndara Sanchis</li>
+                        <li>Francisco Lozano Mellado</li>
+                        <li>Jos&eacute; Andr&eacute;s Penad&eacute;s Cervell&oacute;</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal de Alumno-->
+        <div class="modal fade" id="alumno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Inicio Sesion Alumnado</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="MenuAlumno">
+                        	<input type='hidden' name='rol' value='alumno'>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" name="user">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Contrase&ntilde;a</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <input type="submit" class="btn btn-dark" value="Ingresar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal de Profesor-->
+        <div class="modal fade" id="profesor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Inicio Sesion Profesorado</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="MenuProfe">
+                        	<input type='hidden' name='rol' value='profesor'>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" name="user">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Contrase&ntilde;a</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <input type="submit" class="btn btn-dark" value="Ingresar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="separator mt-4"></div>
+    </div>
+    <div class="container-fluid text-center py-3 footer">
+        <p>Trabajo en grupo realizado para la asignatura Desarrollo Web | Curso 2022-2023</p>
+    </div>
+</body>
+
+</html>
