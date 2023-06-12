@@ -1,354 +1,393 @@
-# Resumen de Actas | DEW-3TI11-L1
+# MEMORIA ENTREGA FINAL
 
-## Acta de Reunión nº1
+## index.html de inicio
+La página de entrada o índice es la primera pantalla que los clientes verán al acceder al sitio web, **index.html**. Esta contiene dos botones que envían al usuario a su menú principal correspondiente con el filtro de autenticación antes de acceder.
 
-### Preámbulo
----
-La reunión se realizó en persona el día miércoles **19/04/2023** en referencia a la sesión 1 de laboratorio.
+Dependiendo si el usuario es un/a alumno/a o un/a profesor/a tendrá el rol **rolalu** o **rolpro** respectivamente. Estos roles los debemos definir en el fichero tomcat/conf/tomcat-users.xml
 
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- José Andrés Penadés Cervelló
+Para las consultas http entre el cliente y el código servidor hemos utilizado los javax.servlet y para las consultas a centro educativo hemos usado Apache y Cliente.http v5.
 
-### Resumen
----
-Tras la presentación del trabajo por parte del profesor, se realizó una reunión al salir del aula en la que los miembros del grupo especificamos la forma de trabajar para las próximas reuniones y el desarrollo del trabajo de prácticas. 
+Hemos añadido el link de Bootstrap 4.3.1 para estilos, y el script JQuery y dos scripts de JS para las ventanas modales, botones, etc.
 
-### Desarrollo
----
-Para definir la dinámica de trabajo se creó un grupo de WhatsApp para facilitar la comunicación entre reuniones, mientras que durante las reuniones se usará Discord como método de comunicación y, finalmente, para facilitar la compartición de código se inicializó un GitHub (git) como herramienta común. Diego Córdoba creó un Trello con el objetivo de mantener un registro de las actividades y tareas realizadas, además de contener enlaces y documentos (como tablas, actas...) derivados del desarrollo del trabajo. 
-Se ha definido los jueves entre las 12:30 y las 14:00 al acabar las clases como horario para realizar las reuniones. 
+![captura](http://personales.alumno.upv.es/flozmel/dew5/index.png)
 
-Tras definir el dinámica, se comentó el contenido de la próxima sesión de laboratorio (Sesión 0) y se definieron tareas para prepararla:
-- Lectura del documento "Organización Labo 2", disponible en apartado Recursos del PoliformaT de la asignatura.
-
-### En referencia al profesor
-----
-Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor.
-
-
-## Acta de Reunión nº2
-
-### Preámbulo
----
-Esta reunión se realizo online a través de Discord el día jueves **27/04/2023** en referencia a la sesión 2 de laboratorio.
-
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- José Andrés Penadés Cervelló
-
-### Resumen
----
-Exposición de los temas reapartidos en la **reunión 1** y posterior evaluación a cada miembro.
-
-### Desarrollo
----
-- Cerdá Puche Pablo: *Expectativas, Brainstorming*
-   > Extrae las ideas principales y las comunica de manera eficaz.
-
-- Diego Córdoba Serra: *Conflictos, Gestión de Conflictos*
-   > Emplea un lenguaje claro y sencillo para conseguir transmitir las ideas.
-
-- Jorge Gandara Sanchis: *Comunicación, Objetivos, Resolución de Problemas*
-   > Se apoya en ejemplos que ayudan a visualizar los conceptos y demuestra gran capacidad de síntesis.
-
-- Francisco Lozano Mellado: *Conflictos, Gestión de Conflictos*
-   > Se preocupa de que todos entiendan las ideas que expone y usa un tono más suave para facilitar la comprensión.
-
-- Jose Andrés Penadés Cervelló: *Comunicación, Objetivos, Resolución de Problemas*
-   > Demuestra habilidad para resumir la información y exponerla.
-
--> Para la próxima sesión el equipo acuerda practicar con Eclipse la publicación en Servidor de proyectos web dinámicos.
-
-
-## Acta de Reunión nº3
-
-### Preámbulo
-----
-Esta reunión se realizo online a través de Discord el día jueves **04/05/2023** en referencia a la sesión 2 de laboratorio.
-
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- José Andrés Penadés Cervelló
-
-### Resumen
----
-Tras la explicación de la sesión el día 26/04/2023 por parte del profesor, se inició esta reunión con el objetivo de realizar las tareas correspondientes a la sesión número 1 de la segunda parte de las prácticas. En dicha reunión, se desarrollaron mediante Eclipse los primeros **servlets** del proyecto (prototipos de log) que se  pusieron a prueba mediante formularios. Además, se realizaromn las primeras interacciones con la aplicación CentroEducativo mediante el uso de **curl**.
-
-### Desarrollo
----
-**- Formularios**
-
-Para el desarrollo de los diferentes tipos de servlets, se desarrollaron una serie de formularios relativos a cada servlet. Para facilitar poder acceder a cada formulario relacionado con un servlet determinado sin afectar a los demás, se definió un html llamado "index.html", el cual contiene enlaces a los tres formularios, cada uno relacionado con un servlet (log) concreto.
+En index.html se abre un formulario y se introducen los datos de usuario para iniciar sesión:
 ```html
-...
-<body>
-	<h1>Lista de loggers</h1>
-	<ol>
-	<li><a href="log0.html"> Logger0</a></br></li>
-	<li><a href="log1.html"> Logger1</a></br></li>
-	<li><a href="log2.html"> Logger2</a></br></li>
-	</ol>
-</body>
-...
+<form action="MenuProfe">
+    <input type='hidden' name='rol' value='profesor'>
+    <div class="form-group">
+        <label for="recipient-name" class="col-form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" name="user">
+    </div>
+    <div class="form-group">
+        <label for="recipient-name" class="col-form-label">Contrase&ntilde;a</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <input type="submit" class="btn btn-dark" value="Ingresar">
+    </div>
+</form>
+
 ```
 
-Seguidamente, se explicará el funcionamiento de los formularios desarrollados:
-1. El formulario adjuntado a continuación hace referencia a la ejecución del servlet log0. Se han desarrollado tres formularios diferentes, cada uno relacionado con su servlet. Cada formulario se llama "logn.html", siendo n el número de log. Como se puede observar, distinguimos cuatro inputs. 
-2. El primer input es de tipo text y hace referencia al DNI del usuario. 
-3. El segundo input, también de tipo text, hace referencia a los apellidos del usuario.
-4. El tercer input, último de tipo ext, hace referencia al nombre del usuario.
-5. El cuarto y último input, de tipo submit, actua de botón para realizar el envío del formulario. 
-
-Es también observable que el formato del formulario descrito se aplica tanto para el método GET como para el método POST:
-```java
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		PrintWriter pw = response.getWriter();
-		String dni = request.getParameter("dni");
-		String nombre = request.getParameter("nombre");
-		String apellidos = request.getParameter("apellidos");
-
-		String preTituloHTML5 = "<!DOCTYPE html>\n<html>\n<head>\n"
-		 + "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />";
-		 response.setContentType("text/html");
-		pw.println(preTituloHTML5);
-				pw.println(LocalDateTime.now().toString() + " " + request.getQueryString() + " " + dni + ", " + nombre + ", " + apellidos + " " + request.getRemoteAddr() + " " + getServletName() + " " + request.getRequestURI() + " " + request.getMethod() +" \n");
-	}
- ```
- ```java
- protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
- ```
-
-**- Especificaciones de servlets, logger1 y logger2**
-
-Los nombres de los servlets siguen la misma forma que los nombres de los formularios, loggern, siendo n el numero de log al que hacen referencia. Los servlets 
-relativos a log1 y log2 (logger1 y logger2 respectivamente), pese a tener una estructura similar, tienen cambios significativos respecto al log0. Estos cambios
-se definirán a continuación.
-Los servlets incorporan dos métodos, doGet y doPost. Es aquí donde entran las diferencias entre servlets.  
-
-En primer lugar, nos fijremos en logger1, el servlet relativo a log2. Si nos fijamos en el método doGet, podemos ver que se especifica
-(mediante el uso de la clase File) una ubicación, que será donde los logs se generen. 
-```java
-PrintWriter pw2 = new PrintWriter(new FileOutputStream(new File("/home/user/Escritorio/salidasLog.log"),true));
-```
-Por otro lado, en el servlet relativo a log2, también se especifica una ubicación pero esta vez se define desde el ficherp web.xml (facilitado en las 
-transparencias del tema 7 de Desarrollo Web). Esto provoca un cambio en el código respecto del anterior. 
+## Filtro de autenticacion
+El filtro de autorizacion Authorization.java se ejecuta en el instante en el que el usuario cliente accede a un servlet al cual se le ha mapeado dicho filtro:
 ```xml
-  ...
-  <context-param>
-        <param-name>logPath</param-name>
-        <param-value>/home/user/Escritorio/salidasLog.log</param-value>
-  </context-param>
-  ...
-  ```
+ <filter>
+    <filter-name>Authorization</filter-name>
+    <filter-class>Authorization</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Authorization</filter-name>
+    <servlet-name>MenuAlumno</servlet-name>
+    <servlet-name>MenuProfe</servlet-name>
+  </filter-mapping>
+```
+
+La interfaz del filtro implementa tres metodos, el init() para establecer valores inicializados por defecto, destroy() para liberar recursos asociados a el filtro y por ultimo el campo mas importante doFilter() que se encarga del proceso de filtrado de datos.
+
+En nuestro metodo doFilter(), en primera instacia nos encargamos de definir el protocolo http que empleamos en los servlets y capturasmo las credenciales del usuario. Inciamos la sesion y un almacen de cookies.
+
+Durante la fase de comprobacion y debugging, detectamos que al disponer de un boton de "Atras" en el menu de incio de los usuarios(alumno y profesor), el filtro aplicado a este, se ejecutaba cada vez que se accedia al servlet. Esto inciciaba una nueva ejecucion del protocolo de autenticacion, obtencio de key, etc, lo cual suponia un problema para la persistencia de las sesion y datos. Por ello, decidimo definier una condicion de autneticacion solo si la sesion era nueva:
+```java
+if(session.isNew()) {
+    ...
+    chain.doFilter(request, response);
+}
+```
+Esto originaba un nuevo problema, ya que como bien sabemos el chain.doFilter() el el callback encargado de proseguir la ejecucion del servlet llamado inicialmente, el problema es que si el usuario ya dispone de una sesion, esta debia pasar por alto todo el codigo hasta ejecutar el chain y por otro lado si la sesion era nueva, esta debia comprobar las credenciales y decidir si continua con chain o se suspende el filtro. Por esto, primero establecemos el else por si el cliente ya tiene una sesion y si es nueva, comprobamos a traves del codigo que retorna execute, si es 200 guarda datos en la sesion y cookies y continua con chain, de lo contrario, si no es 200 se invalida la sesion y se reedirige al usuario a la pantalla de inicio.
+
+```java
+if(session.isNew()) {
+    ...
+    if (execute.getCode() != 200) {
+        http_req.getSession().invalidate();
+        http_resp.sendRedirect("/Notas_Online/");
+    } else {
+        ...
+        chain.doFilter(request, response);
+    }
+} else {chain.doFilter(request, response);}
+```
+
+Otro detalle a destacar para que la sesion del cliente este controlada correctamente es almacenar las cookies del cliente en cada solicitud correctamente mediante:
+```java
+final CloseableHttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
+```
+A parte, almacenamos la clave(key) recibida en el post de login, en la session del cliente y tambien almacenamos las cookies capturadas en las solicitudes. Este proeso nos ha sido crucial para poder realizar solicitudes posteriores. En otro servlet, para crear un clinete el cual tenga asignado la misma key que el clietne de la autenticacion, añadimos las cookies almacenadas en la sesion al cliente nuevo, de no ser asi, el servidor no detectava al usuario con autenticacion asociada a esa clave:
+```java
+// Servlet 2
+BasicCookieStore cookies_lts = (BasicCookieStore) session.getAttribute("cookies");
+List<Cookie> cookielist = cookies_lts.getCookies();
+// CARGAMOS VARIABLES DE SESION, TODAS LAS COOKIES ANTERIORES EN LA NUEVA
+// VARIABLE
+// REVISAR METODO COOKIES, PUEDE NO TENER SETNIDO ESTE PROCESO
+String key = (String) session.getAttribute("key");
+String user = (String) session.getAttribute("user");
+for (Cookie cookie : cookielist) {
+    cookies.addCookie(cookie);
+}
+```
+
+## Explicacion paso a paso autenticacion
+En el método de autenticar obtenemos las credenciales del formulario e inicializamos la session, utilizamos el objeto el Basic cookie store para almacenar cookies en cada consulta.
+```java
+        String user = http_req.getParameter("user");
+        String password = http_req.getParameter("password");
+	
+	// CAPTURAMOS LA SESION ACTUAL DEL CLIENTE
+        HttpSession session = http_req.getSession();
+
+        // USAMOS BASICCOOKIE PARA CREAR COOKIES
+        BasicCookieStore cookies = new BasicCookieStore();
+```
+
+Para comprobar las credenciales del usuario hemos añadido una condición para comprobar si la sesión es nueva (session.isNew()) para que la autenticación de usuario se haga solo una vez.
+```java
+if (session.isNew());
+```
+
+Así hemos hecho las consultas:
+```java
+JSONObject json = new JSONObject();
+json.put("x", x);
+
+// DEFINIMOS LA URL DE LA SOLICITUD POST ->
+// http://dew-milogin-2223.dsicv.upv.es:9090/CentroEducativo/login
+String milogin = http_req.getLocalName();
+String dir = "http://" + milogin + ":9090/CentroEducativo/login";
+
+// CREACION DEL CLIENTE Y POST DESTINO HTTP APACHE
+final CloseableHttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
+
+// CONSULTA POST
+HttpPost post = new HttpPost(dir);
+
+// ENCAPSULAMOS EL MENSAJE DE FORMATO JSON, AÑADO ENTITY AL PAQUETE DE ENVIO
+String jsonString = json.toString();
+// JSON COMPROBACION
+// out.println(jsonString);
+StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_JSON);
+post.setEntity(entity);
+// EJECUTAMOS LA SOLICITUD
+CloseableHttpResponse execute = cliente.execute(post);
+```
+
+
+Tras hacer la consulta en el Autenticar obtenemos la clave del usuario y la almacenamos en una variable de sesión Key, para posteriormente al crear otros clientes para hacer consultas la clave corresponda al primer cliente, almacenamos las cookies en la sesión y posteriormente se las asignamos a posteriores clientes.
+```java
+// CREAMOS LA KEY PARA LAS CONSULTAS
+String key;
+try {
+key = EntityUtils.toString(execute.getEntity());
+session.setAttribute("key", key);
+} catch (ParseException | IOException e) {
+e.printStackTrace();
+}
+session.setAttribute("cookies", cookies);
+// CERRAMOS RESPUESTA Y CLIENTE
+execute.close();
+// cliente.close();
+```
+
+## MenúAlumno.java para el menu de inicio
+Una vez se comprueba que las credenciales son correctas, el usuario pasa a la ventana del menú principal de su rol.
+En este menú hacemos el mismo uso de la clave de usuario para almacenar las cookies.
+Se construye la página html usando los "out.println()".
+Hemos añadido el botón de cerrar sesión que ejecuta un action el cual es un servlet que invalida la sesión y redirige al index.html
+
+En Menú Alumno, el alumno ve las asignaturas en las que está matriculado, y clicando en cada una puede ver la información y su nota de la asignatura, redirigiendo a la página detailAlu. También encuentra un enlace para generar su Certificado Académico, el cual redirige a la página Certificado.
+Los datos que se necesitan para construir la página del MenuAlumno, como lo son asignaturas, dni, nombre y apellidos del usuario(datos personales) se obtienen mediante un objeto JSON que crearemos a partir del parámetro info. A partir de este objeto, podemos extraer los datos anteriormente nombrados de la siguiente manera.
+
+```java
+JSONObject infoJSON = new JSONObject(info);
+ String dni = infoJSON.getString("dni");
+ String nombre = infoJSON.getString("nombre");
+ String apellidos = infoJSON.getString("apellidos");
+```
+
+Una vez tenemos los datos, los añadimos a la sesión como atributos como aquí abajo se indica.
+
+```java
+session.setAttribute("nombre", nombre);
+session.setAttribute("apellidos", apellidos);
+```
+
+Con estos datos obtenidos, la creación de la página se efectúa con total normalidad, haciendo uso de los anteriormente citados, hasta que llegamos a la lista de notas y asignaturas.
+Éstas requerirán de otra solicitud para la cual obtendremos primero la URL de CentroEducativo donde se encuentran y haremos un Get sobre ésta y ejecutaremos la solicitud obtenida.
+
+```java
+String dir_asignaturas = "http://" + milogin + ":9090/CentroEducativo/alumnos/" + user + "/asignaturas" + "?key=" + key;
+HttpGet get2 = new HttpGet(dir_asignaturas);
+final CloseableHttpResponse execute2 = cliente.execute(get2);
+```
+
+Usaremos una variación de JSON, JSONArray, para poder desplegar la lista de aplicaciones.
+
+```java
+String asignaturas = EntityUtils.toString(execute2.getEntity());
+```
+
+Convertimos de object a array.
+
+```java
+
+JSONArray array = new JSONArray(asignaturas);
+```
+
+Y finalmente usamos de un bucle for con el que recorreremos la lista de asignaturas,  y conseguiremos el nombre de la asignatura con su respectiva nota.
+
+```java
+
+for(int i = 0; i < array.length(); i++) {
+	JSONObject asig_index = (JSONObject) array.get(i);
+        	String asig = (asig_index.getString("asignatura")).toString();
+        	String nota = (asig_index.getString("nota")).toString();
+```
+
+Con esto daríamos por acabada la solicitud de datos para la creación del MenuAlumno.
+
+## MenúProfesor.java
+En Menú Profe, el profesor puede acceder a las asignaturas que él mismo imparte, redirigiéndole al servlet detailProfe.java
+
+Los datos que se necesitan para construir la página del MenuProfe, como lo son dni, nombre y apellidos del usuario(datos personales) se obtienen mediante un objeto JSON (al igual que para el alumno) que crearemos a partir del parámetro info. A partir de este objeto, podemos extraer los datos anteriormente nombrados de la siguiente manera.
+
+```java
+JSONObject infoJSON = new JSONObject(info);
+            String dni = infoJSON.getString("dni");
+            String nombre = infoJSON.getString("nombre");
+            String apellidos = infoJSON.getString("apellidos");
+```
+La página también contiene el enlace para acceder a las asignaturas:
+
+```java
+out.println("                        <form action='detailProfe' method='GET'>");
+        out.println("                            <input type='hidden' name='dni' value=" + dni + ">");
+        out.println("                            <input type='hidden' name='nombre' value=" + nombre + ">");
+        out.println("                            <input type='hidden' name='apellidos' value=" + apellidos + ">");
+        out.println("                            <button type='submit' class='btn btn-link'>Asignaturas</button>");
+        out.println("                        </form>");
+```
+
+## detailAlu.java, pagina detalle
+En esta página se muestra la información del alumno, la información de la asignatura seleccionada en la página anterior y la nota del alumno en la misma (si el profesor no ha puesto las notas, aparece “Sin calificar”).
+
+Para facilitar la creación de los "out.println()" a la hora de construir los HTML dinámicamente, hemos creado un htmlToPrintln.java que convierte el documento html a txt.
+
+## Servlet detailAlu.java
+Este servlet es llamado desde el servlet *MenuAlumno.java* y su propósito es mostrar la calificación del alumno en la asignatura seleccionada en la “pantalla” anterior.
+
+Del servlet invocante recibirá los parámetros necesarios para mostrar la información. Este Servlet no realiza ninguna petición http.
+
+```java
+
+// VARIABLES
+        String milogin = request.getLocalName();
+        String dni = (String)session.getAttribute("user");
+        String nombre = (String)session.getAttribute("nombre");
+        String apellidos = (String)session.getAttribute("apellidos");
+        String asignatura = request.getParameter("asig");
+        String nota = request.getParameter("nota");
+        
+        if(nota == "") {nota = "Sin calificar";}
+```
+En este fragmento de código vemos cómo obtiene los datos del servlet petición y los usará en la construcción de la página respuesta. 
+Es interesante cómo se asigna la cadena: “Sin calificar” cuando se detecta que el parámetro nota no tiene valor numérico, no está asignada una nota para ese alumno en esa asignatura.
+
+## Servlet detailProfe.java
+Este servlet es llamado desde el servlet *MenuProfe.java* y su propósito es mostrar las asignaturas impartidas por el profesor, también brinda al profesor la posibilidad de modificar una nota de un alumno matriculado en una asignatura impartida por él.
+
+Del servlet que lo invoca recibimos los parámetros dni, nombre y apellidos del profesor. El dni nos servirá para la petición que deberá hacer el servlet para obtener las asignaturas de este profesor.
+
+```java
+String dir = "http://" + milogin + ":9090/CentroEducativo/profesores/" + dni + "/asignaturas" + "?key=" + key;
+        //Traza de la key -> out.println(key);
+        //Traza de la dir -out.println(dir);
+        
+        // GET
+        HttpGet get = new HttpGet(dir);
+        
+        // EJECUTO LA SOLICITUD
+        final CloseableHttpResponse execute = cliente.execute(get);
+        
+     // OBTENEMOS INFO
+        String info;
+        try {
+            info = EntityUtils.toString(execute.getEntity());
+JSONArray infoJSON = new JSONArray(info);
+
+```
+En esta sección del código del servlet vemos cómo construye la petición HTTP GET para obtener un Array de Objetos JSON, cada objeto JSON es una asignatura.
+
+Para incluir las asignaturas en la página que se devuelve en la respuesta deberemos recorrer el array de objetos JSON Asignaturas extrayendo los atributos que nos interesa mostrar:
+
+```java
+out.println("                Asignaturas que imparte:");
+            out.println("<br>");
+            
+
+            for (int i = 0; i < infoJSON.length(); i++) {
+                JSONObject jsonObject = infoJSON.getJSONObject(i);
+                // Imprimir por pantalla cada objeto JSON
+out.println("- " + jsonObject.getString("acronimo") + " | " + jsonObject.getString("nombre")); 
+                out.println("<br>");
+            }
+
+```
+Después insertamos en la página un formulario que invocará al servlet para comenzar con la modificación de una nota. En ese *form* se pasan atributos al servlet **seleccionAsig.java** como el dni del profesor y un string con las asignaturas.
+
+```java
+            out.println("                        <form action='seleccionAsig' method='GET'>");
+            out.println("                            <input type='hidden' name='dni' value=" + dni + ">");
+            out.println("                            <input type='hidden' name='nombre' value=" + nombre + ">");
+            out.println("                            <input type='hidden' name='apellidos' value=" + apellidos + ">");
+            out.println("                            <input type='hidden' name='asignaturas' value=" + info + ">");  
+            out.println("                            <button type='submit' class='btn btn-link'>Modificar nota Asignatura-Alumno</button>");
+            out.println("                        </form>");
+
+```
+
+## Servlet seleccionAsig.java
+En este servlet el profesor indicará qué asignatura es la que tiene una nota que quiere modificar. Es invocado desde *detailProfe.java* y llamará al servlet *alumnosDeAsig.java*.
+De su invocador, este servlet hace especial uso del atributo asignaturas en el que le pasan un String con las asignaturas obtenidas en el servlet anterior.
+
+Con ese String de Asignaturas construye un **JSONArray** que usará para recorrerlo y construir un formulario en el que enviarle al servlet siguiente la asignatura escogida por el profesor:
+
+```java
+
+            out.println("                        <form action='alumnosDeAsig' method='GET'>");
+            out.println("                            <input type='hidden' name='dni' value=" + dni + ">");
+            out.println("                            <input type='hidden' name='nombre' value=" + nombre + ">");
+            out.println("                            <input type='hidden' name='apellidos' value=" + apellidos + ">");
+						            for (int i = 0; i < asignaturasJSON.length(); i++) {
+						                JSONObject jsonObject = asignaturasJSON.getJSONObject(i);
+						                // Imprimir por pantalla cada objeto JSON
+						                out.println("<input type='radio' name='opcionAsig' value=" + jsonObject.getString("acronimo") + " required>" + jsonObject.getString("acronimo"));
+						                out.println("<br>");
+						                
+						            }
+                                                out.println("                            <p><button type='submit' class='btn btn-link'>Seleccionar Asignatura</button></p>");
+            out.println("                        </form>");
+
+
+```
+La implementación de esta funcionalidad como vemos en el código ha sido mediante un formulario y radioButtons, de tal manera que el profesor escoja una y solo una de las asignaturas. El atributo *required* impide continuar sin seleccionar asignaturas.
+
+##Servlet alumnosDeAsig.java
+
+Este servlet se encarga de la selección del alumno a quien el profesor quiere modificar la nota en la asignatura seleccionada en el servlet anterior, el que lo invoca a este.
+
+En este servlet se hace uso del atributo que le pasa el servlet invocante: **acrónimo**, este atributo lo usa para construir la petición GET destinada a obtener los alumnos matriculados en una asignatura concreta = la que se seleccionó justo antes.
+
+```java
+        String acronimo = request.getParameter("opcionAsig");
+        
+        String dir = "http://" + milogin + ":9090/CentroEducativo/asignaturas/" + acronimo + "/alumnos" + "?key=" + key;
+        HttpGet get = new HttpGet(dir);
+        
+        // EJECUTO LA SOLICITUD
+        final CloseableHttpResponse execute = cliente.execute(get);
+        String alumnos;
+        try {
+            alumnos = EntityUtils.toString(execute.getEntity());
   
-**- Salidas**
+            // COMPROBACION
+            //PRUEBA Mostrar Datos del Profesor -> out.println(info);
+            JSONArray alumnosJSON = new JSONArray(alumnos);
 
-La salida debe proporcionar datos del formulario,información del cliente, fecha actual, URI, método. Las diferencias notables entre los tres loggers se hacen 
-visibles a la hora de observar la salida de cada uno de ellos.
-En cuanto al logger0, la salida de este se mostrará en la pantalla del navegador una vez enviado el respectivo formulario. 
-```txt
-2023-05-09T19:16:17.566295 dni=12345678A&nombre=User&apellidos=Resu+Resu 12345678A, User, Resu Resu 172.23.2.245 logger0 /DEW_TRABAJO/logger0 GET
-2023-05-09T19:16:54.688158 null 12345678A, User, Resu Resu 172.23.2.245 logger0 /DEW_TRABAJO/logger0 POST
 ```
-Por su parte, la salida de logger1 y logger2 quedarán grabadas en el fichero relativo a la ubicación definida anteriormente. 
-```txt
-2023-05-09T19:17:26.359610 dni=12345678A&nombre=User&apellidos=Resu+Resu 12345678A, User, Resu Resu 172.23.2.245 logger1 /DEW_TRABAJO/logger1 GET
-2023-05-09T19:17:37.260188 null 12345678A, User, Resu Resu 172.23.2.245 logger1 /DEW_TRABAJO/logger1 POST
-```
-```txt
-2023-05-09T19:18:37.075084 dni=12345678A&nombre=User&apellidos=Resu+Resu 12345678A, User, Resu Resu 172.23.2.245 logger2 /DEW_TRABAJO/logger2 GET
-2023-05-09T19:18:00.259516 null 12345678A, User, Resu Resu 172.23.2.245 logger2 /DEW_TRABAJO/logger2 POST
-```
+Aquí se ve la construcción y envío de la petición y como guarda la respuesta en un JSONArray con los objetos JSON Alumnos.
+Luego usará ese JSONArray para recorrerlo y hacer exactamente lo mismo que antes: Insertar en un form los radioButtons correspondientes al dni de los alumnos para pasarle esta información al servlet siguiente encargado de poner la nota: *indicarNota.java*
 
-**- Curl**
+```java
 
-Para la ejecución de las órdenes curl, se ha creado un script llamado OrdenesCurl.sh. Este script contiene órdenes de consulta, adición y eliminación. 
+            out.println("                <p>Alumnos de " + acronimo + ":</p>");
+            out.println("<br>");
 
+            out.println("                        <form action='indicarNota' method='GET'>");
+            out.println("                            <input type='hidden' name='dniProf' value=" + dni + ">");
+            out.println("                            <input type='hidden' name='nombreProf' value=" + nombre + ">");
+            out.println("                            <input type='hidden' name='apellidosProf' value=" + apellidos + ">");
+            out.println("                            <input type='hidden' name='acronimo' value=" + acronimo + ">");
+            
+            
+						            for (int i = 0; i < alumnosJSON.length(); i++) {
+						                JSONObject jsonObject = alumnosJSON.getJSONObject(i);
+						                // Imprimir por pantalla cada objeto JSON
+						                out.println("<input type='radio' name='opcionAlu' value=" + jsonObject.getString("alumno") + " required>" + jsonObject.getString("alumno"));
+						                out.println("<br>");
+						            }
 
-```sh
-key=$(curl -s --data '{"dni":"111111111","password":"654321"}' -X POST -H "content-type: application/json" http://democe.dsic.upv.es:9090/CentroEducativo/login -c galleta -b galleta)
+            out.println("                            <p><button type='submit' class='btn btn-link'>Siguiente</button></p>");
+            out.println("                        </form>");
 
-curl -s -X GET 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos?key='$key -H "accept: application/json" -c galleta -b galleta
-
-curl -s --data '{"apellidos": "lopez", "dni": "111111112", "nombre": "pepe", "password": "654321"}' -X POST -H "content-type: application/json" 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos?key='$key  -c galleta -b galleta
-
-curl -s --data '{"dni":"111111112"}' -X DELETE -H "content-type: application/json" 'http://democe.dsic.upv.es:9090/CentroEducativo/alumnos/111111112?key='$key  -c galleta -b galleta
 ```
 
-Para el desarrollo de las órdenes se ha creado una variable de entorno llamada **key**, la cual sirve para guardar la clave de sesión. Esta variable se utiliza para completar la URL de las instrucciones. 
-Para procesar en el cliente en formato json, se añade accept:application/json. además, se añade "-b galleta -c galleta" para guardar el fichero de cookies. 
+## Servlet indicarNota.java
+En este servlet, el profesor indicará la nota que quiere poner al alumno y pasará toda la información recopilada durante todos los servlets anteriores para establecer la nota al alumno en la asignatura
 
-La **primera orden** curl del script, de consulta, muestra por pantalla una lista con todos los objetos json alumnos, con sus propiedades(apellidos,dni,nombre,password),pertenecientes a CentroEducativo.
-Salida:
-```text
-[{"dni":"12345678W","nombre":"Pepe","apellidos":"Garcia Sanchez"},{"dni":"23456387R","nombre":"Maria","apellidos":"Fernandez Gómez"},{"dni":"34567891F","nombre":"Miguel","apellidos":"Hernandez Llopis"},{"dni":"93847525G","nombre":"Laura","apellidos":"Benitez Torres"},{"dni":"37264096W","nombre":"Minerva","apellidos":"Alonso Pérez"}]
-```
+La obtención de la nota se hace con un input type number y se pasa al servlet definitivo en un formulario.
 
-La **segunda orden** curl del script añade un nuevo alumno de dni "111111112", nombre "pepe", apellido "lopez" y contraseña "654321".Nos devuelve la ejecución de esta orden si todo ha ido bien un **OK**.Si tras la ejecución de esta orden, ejecutamos la primera orden GET para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido añadido. 
-Salida:
-```text
-[{"dni":"12345678W","nombre":"Pepe","apellidos":"Garcia Sanchez"},{"dni":"23456387R","nombre":"Maria","apellidos":"Fernandez Gómez"},{"dni":"34567891F","nombre":"Miguel","apellidos":"Hernandez Llopis"},{"dni":"93847525G","nombre":"Laura","apellidos":"Benitez Torres"},{"dni":"37264096W","nombre":"Minerva","apellidos":"Alonso Pérez"},{"dni":"111111112","nombre":"pepe","apellidos":"lopez"}]
-```
-
-La **tercera orden** curl del script elimina un alumno de CentroEducativo a partir de su dni. Nos devuelve la ejecución de esta orden si todo ha ido bien un **OK**.Si tras la ejecución de esta orden, ejecutamos la primera para consultar los alumnos de CentroEducativo, podremos observar que el alumno ha sido eliminado. En este ejemplo, se ha eliminado el alumno añadido en la orden anterior. 
-Salida:
-```text
-[{"dni":"12345678W","nombre":"Pepe","apellidos":"Garcia Sanchez"},{"dni":"23456387R","nombre":"Maria","apellidos":"Fernandez Gómez"},{"dni":"34567891F","nombre":"Miguel","apellidos":"Hernandez Llopis"},{"dni":"93847525G","nombre":"Laura","apellidos":"Benitez Torres"},{"dni":"37264096W","nombre":"Minerva","apellidos":"Alonso Pérez"}]
-```
-
-### En referencia al profesor
----
-La reunión ha transcurrido sin incidentes que precisaran de la presencia o ayuda del profesor.
-
-
-## Acta de Reunión nº4
-
-### Preámbulo
----
-La reunión se realizó en remoto a través de Discord el día martes **9/05/2023**
-
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- Francisco Lozano Mellado
-
-### Resumen
----
-Reunión breve para revisar la correctitud de los entregables antes de entregar la tarea correspondiente al **Hito 1**.
-
-### Desarrollo
----
-Se han revisado todos los archivos y se han modificado algunos detalles de los loggers y las órdenes curl. Tras estos ligeros cambios todos han estado de acuerdo en realizar la entrega.
-
-### En referencia al profesor
-----
-Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor.
-
-
-## Acta de Reunión nº5
-
-### Preámbulo
-----
-Esta reunión se realizo online a través de Discord el día jueves **04/05/2023** en referencia a la sesión 2 de laboratorio.
-
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- José Andrés Penadés Cervelló
-
-### Resumen
----
-Tras la explicación de la sesión el día 10/05/2023 por parte del profesor, se inició esta reunión con el objetivo de realizar las tareas correspondientes a la sesión número 2 de la segunda parte de las prácticas. En dicha reunión, se explicaron cómo realizarlas interacciones con CentroEducativo. En ella se trataron temas como el plugin Rested, información sobre bibliotecas y sobre la autentificación web.  
-
-### Desarrollo
----
-**Selección de bibliotecas**
-
-Para el desarrollo de las interacciones con CentroEducativo se usaron una serie de bibliotecas.
-Entre ellas:
- - *jna-5.2.0.jar* , ya que nos permite a interactuar con bibliotecas nativas de otros lenguajes a través de una interfaz java.
- - *httpclient5-5.0.3.jar*, ya que proporciona una API que permite realizar solicitudes HTTP y manejar respuestas.
- - *httpcore5-5.0.2.jar*, ya que proporciona los componentes básicos para la implementación de protocolos HTTP.
- - *json-java.jar* , ya que proporciona funcionalidades para analizar, generar y manipular datos JSON.
- - *reactive-streams-1.0.2.jar* , ya que permite un manejo de datos eficiente y escalable.
- - *rxjava-2.2.8.jar*, mismas funcionalidades que la librería anterior. 
- - *slf4j-api-1.7.25.jar*, nos proporciona una interfaz de manejo de eventos. 
-
-
-El uso de esta serie de librerias radica en la necesidad de otorgar a nuestro servicio web la capacidad de manejar el envío y recibimiento mediante HTTP, clave para la comunicación con el servidor; usar JSON como formato de intercambio de datos y manejar cantidades grandes de datos de forma eficiente. 
-
-### En referencia al profesor
----
-La reunión ha transcurrido sin incidentes que precisaran de la presencia o ayuda del profesor.
-
-
-
-## Acta de Reunión nº6
-
-### Preámbulo
-----
-Esta reunión se realizo online a través de Discord el día jueves **04/05/2023** en referencia a la sesión 2 de laboratorio.
-
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- José Andrés Penadés Cervelló
-
-### Resumen
----
-Tras la explicación de la sesión el día 17/05/2023 por parte del profesor, se inició esta reunión con el objetivo de realizar las tareas correspondientes a la sesión número 3 de la segunda parte de las prácticas. En dicha reunión, se especificó cómo realizar las secuencias de uso con CentroEducativo. En ella se describieron el escenario de consulta de un alumno, el escenario de un profesor que califica y consulta resultados, además de un repaso de ejemplos de Bootstrap.  
-
-### Desarrollo
----
-
-**Detalles de prueba**
-
-Para comprobar el correcto funcionamiento de los servlets. Iniciamos el servidor y accedemos a la URL. Nos aparece como página de vida un índice en el cual se nos da la opción de acceder como alumno. Una vez pulsado este botón aparece una alerta en la cual se pide insertar las credenciales(dni y constraseña), si las insertamos de manera correcta se nos abre una nueva página de la cual habaremos luego, sin embargo, si de manera contraria, las credenciales no son correctas no se redirige a otra página. La página que se nos abre al insertar de manera correcta contiene tanto nombre como dni del alumno que ha iniciado sesión además de las asignaturas en las que está matriculado, si clicamos sobre una de estas asignaturas nos sale información detallada de ésta.
-
-**Estado del grupo**
-
-En cuanto al grupo, este no presenta problemas, las reuniones se realizan los días acordados y todos los miembros acuden. Se acordó en la primera reunión ir a alcanzar la máxima nota posible y, de momento, se mantiene ese objetivo. 
-
-### En referencia al profesor
----
-La reunión ha transcurrido sin incidentes que precisaran de la presencia o ayuda del profesor.
-
-
-## Acta de Reunión nº7
-
-### Preámbulo
----
-La reunión se realizó en remoto a través de Discord el día martes **23/05/2023**
-
-En la reunión han participado:
-- Pablo Cerdá Puche
-- Diego Córdoba Serra
-- Jorge Gandara Sanchis
-- Francisco Lozano Mellado
-- José Andrés Penadés Cervelló
-El alumno firmante es:
-- Francisco Lozano Mellado
-
-### Resumen
----
-Reunión breve para revisar la correctitud de los entregables antes de entregar la tarea correspondiente al **Hito 2**.
-
-### Desarrollo
----
-Se han revisado todos los archivos y se han modificado algunos detalles estéticos. Tras estos ligeros cambios todos han estado de acuerdo en realizar la entrega.
-
-### En referencia al profesor
-----
-Durante el desarrollo de la reunión no se ha producido ningún incidente que necesite de la intervención del profesor.
+## Servlet setNota.java
+Este servlet definitivo será quien construya la petición PUT encargada de acceder al nivel de Datos para modificar la nota al alumno.
