@@ -349,6 +349,8 @@ La obtención de la nota se hace con un input type number y se pasa al servlet d
 ## Accion de cambio de nota, setNota.java
 Este servlet definitivo será quien construya la petición PUT encargada de acceder al nivel de Datos para modificar la nota al alumno.
 
+***
+
 # DOCUMENTACION
 
 - Documentacion1 Apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
