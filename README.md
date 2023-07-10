@@ -1,10 +1,10 @@
 # MEMORIA ENTREGA FINAL
 
 ## Inicio, index.html
-La página de entrada o índice es la primera pantalla que los clientes verán al acceder al sitio web, **index.html**. Esta contiene dos botones que envían al usuario a su menú principal correspondiente con el filtro de autenticación antes de acceder.
+La página de entrada o índice es la primera pantalla que los clientes verán al acceder al sitio web, **index.html**. Esta contiene dos botones que envían al usuario a su menú principal correspondiente (en función de su rol) con el filtro de autenticación antes de acceder.
 Dependiendo si el usuario es un/a alumno/a o un/a profesor/a tendrá el rol **rolalu** o **rolpro** respectivamente. Estos roles los debemos definir en el fichero tomcat/conf/tomcat-users.xml
 
-Para las consultas http entre el cliente y el código servidor hemos utilizado los javax.servlet y para las consultas a centro educativo hemos usado Apache y Cliente.http v5.
+Para las consultas http entre el cliente y el código servidor han sido utilizados los javax.servlet y para las consultas a centro educativo hemos usado Apache y Cliente.http v5.
 Hemos añadido el link de Bootstrap 4.3.1 para estilos, y el script JQuery y dos scripts de JS para las ventanas modales, botones, etc.
 
 En index.html se abre un formulario y se introducen los datos de usuario para iniciar sesión:
@@ -43,7 +43,7 @@ El filtro de autorización Authorization.java se ejecuta en el instante en el qu
 
 La interfaz del filtro implementa tres métodos, el init() para establecer valores inicializados por defecto, destroy() para liberar recursos asociados al filtro y por último el campo más importante doFilter() que se encarga del proceso de filtrado de datos.
 
-En nuestro método doFilter(), en primera instancia nos encargamos de definir el protocolo http que empleamos en los servlets y capturado las credenciales del usuario. Iniciamos la sesión y un almacén de cookies.
+En nuestro método doFilter(), en primera instancia nos encargamos de definir el protocolo http que empleamos en los servlets y capturar las credenciales del usuario. Iniciamos la sesión y un almacén de cookies.
 
 Durante la fase de comprobación y debugging, detectamos que al disponer de un botón de "Atrás" en el menú de inicio de los usuarios(alumno y profesor), el filtro aplicado a este, se ejecutaba cada vez que se accedía al servlet. Esto iniciaba una nueva ejecución del protocolo de autenticación, obtención de key, etc., lo cual suponía un problema para la persistencia de la sesión y datos. Por ello, decidimos definir una condición de autenticación solo si la sesión era nueva:
 ```java
@@ -52,7 +52,7 @@ if(session.isNew()) {
     chain.doFilter(request, response);
 }
 ```
-Esto originaba un nuevo problema, ya que como bien sabemos el chain.doFilter() es el callback encargado de proseguir la ejecución del servlet llamado inicialmente, el problema es que si el usuario ya dispone de una sesion, esta debia pasar por alto todo el código hasta ejecutar el chain y, por otro lado, si la sesión era nueva, esta debía comprobar las credenciales y decidir si continúa con chain o se suspende el filtro. Por esto, primero establecemos el else por si el cliente ya tiene una sesión y si es nueva, comprobamos a través del código que retorna execute, si es 200 guardas datos en la sesión y cookies y continua con chain, de lo contrario, si no es 200 se invalida la sesión y se redirige al usuario a la pantalla de inicio.
+Esto origina un nuevo problema, ya que como bien sabemos el chain.doFilter() es el callback encargado de proseguir la ejecución del servlet llamado inicialmente, el problema es que si el usuario ya dispone de una sesión, esta debía pasar por alto todo el código hasta ejecutar el chain y, por otro lado, si la sesión era nueva, esta debía comprobar las credenciales y decidir si continúa con chain o se suspende el filtro. Por esto, primero establecemos el else por si el cliente ya tiene una sesión y si es nueva, comprobamos a través del código que retorna execute, si es 200 se guardan los datos en la sesión y cookies y continua con chain, de lo contrario, si no es 200 se invalida la sesión y se redirige al usuario a la pantalla de inicio.
 ```java
 if(session.isNew()) {
     ...
@@ -70,7 +70,7 @@ Otro detalle a destacar para que la sesión del cliente esté controlada correct
 ```java
 final CloseableHttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
 ```
-Aparte, almacenamos la clave(key) recibida en el post de login, en la sesión del cliente y también almacenamos las cookies capturadas en las solicitudes. Este proceso nos ha sido crucial para poder realizar solicitudes posteriores. En otro servlet, para crear un cliente, el cual tenga asignado la misma key que el cliente de la autenticación, añadimos las cookies almacenadas en la sesión al cliente nuevo, de no ser así, el servidor no detectaba al usuario con autenticación asociada a esa clave:
+Además, se almacena la clave(key) recibida en el post de login, en la sesión del cliente y también almacenamos las cookies capturadas en las solicitudes. Este proceso nos ha sido crucial para poder realizar solicitudes posteriores. En otro servlet, para crear un cliente, el cual tenga asignado la misma key que el cliente de la autenticación, añadimos las cookies almacenadas en la sesión al cliente nuevo, de no ser así, el servidor no detectaba al usuario con autenticación asociada a esa clave:
 ```java
 // Servlet 2
 BasicCookieStore cookies_lts = (BasicCookieStore) session.getAttribute("cookies");
@@ -82,8 +82,8 @@ for (Cookie cookie : cookielist) {
 }
 ```
 
-## Explicacion paso a paso autenticacion
-En el método de autenticar obtenemos las credenciales del formulario e inicializamos la sesión, utilizamos el objeto el Basic cookie store para almacenar cookies en cada consulta.
+## Explicación paso a paso autenticación
+En el método llamado “autenticar", se obtienen las credenciales del formulario y se inicializa la sesión, se utiliza el objeto el Basic cookie store para almacenar cookies en cada consulta.
 ```java
 String user = http_req.getParameter("user");
 String password = http_req.getParameter("password");
@@ -93,7 +93,7 @@ HttpSession session = http_req.getSession();
 BasicCookieStore cookies = new BasicCookieStore();
 ```
 
-Para comprobar las credenciales del usuario hemos añadido una condición para comprobar si la sesión es nueva (session.isNew()) para que la autenticación de usuario se haga solo una vez.
+Para la comprobación de las credenciales del usuario, se ha añadido una condición para comprobar si la sesión es nueva (session.isNew()) para que la autenticación de usuario se haga solo una vez.
 ```java
 if (session.isNew());
 ```
@@ -104,22 +104,22 @@ json.put("x", x);
 // DEFINIMOS LA URL DE LA SOLICITUD POST -> http://dew-milogin-2223.dsicv.upv.es:9090/CentroEducativo/login
 String milogin = http_req.getLocalName();
 String dir = "http://" + milogin + ":9090/CentroEducativo/login";
-// CREACION DEL CLIENTE Y POST DESTINO HTTP APACHE
+// CREACIÓN DEL CLIENTE Y POST DESTINO HTTP APACHE
 final CloseableHttpClient cliente = HttpClients.custom().setDefaultCookieStore(cookies).build();
 // CONSULTA POST
 HttpPost post = new HttpPost(dir);
-// ENCAPSULAMOS EL MENSAJE DE FORMATO JSON, AÑADO ENTITY AL PAQUETE DE ENVIO
+// ENCAPSULAMOS EL MENSAJE DE FORMATO JSON, AÑADO ENTITY AL PAQUETE DE ENVÍO
 String jsonString = json.toString();
-// JSON COMPROBACION
+// JSON COMPROBACIÓN
 StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_JSON);
 post.setEntity(entity);
 // EJECUTAMOS LA SOLICITUD
 CloseableHttpResponse execute = cliente.execute(post);
 ```
 
-Tras hacer la consulta en el Autenticar obtenemos la clave del usuario y la almacenamos en una variable de sesión Key, para posteriormente al crear otros clientes para hacer consultas la clave corresponda al primer cliente, almacenamos las cookies en la sesión y posteriormente se las asignamos a posteriores clientes.
+Tras hacer la consulta en el método “Autenticar”,  se obtiene la clave del usuario y la almacenamos en una variable de sesión Key, para, posteriormente, al crear otros clientes para hacer consultas la clave corresponda al primer cliente, almacenamos las cookies en la sesión y posteriormente se las asignamos a posteriores clientes.
 ```java
-// CREAMOS LA KEY PARA LAS CONSULTAS
+// CREACIÓN DE LA KEY PARA LAS CONSULTAS
 String key;
 try {
     key = EntityUtils.toString(execute.getEntity());
@@ -238,7 +238,7 @@ String dir = "http://" + milogin + ":9090/CentroEducativo/profesores/" + dni + "
 //Traza de la dir -out.println(dir);
 // GET
 HttpGet get = new HttpGet(dir);
-// EJECUTO LA SOLICITUD
+// EJECUCIÓN DE LA SOLICITUD
 final CloseableHttpResponse execute = cliente.execute(get);
 // OBTENEMOS INFO
 String info;
@@ -278,7 +278,7 @@ out.println("    </form>");
 
 ```
 
-## Menu de seleccion, seleccionAsig.java
+## Menu de selección, seleccionAsig.java
 En este servlet el profesor indicará qué asignatura es la que tiene una nota que quiere modificar. Es invocado desde *detailProfe.java* y llamará al servlet *alumnosDeAsig.java*.
 De su invocador, este servlet hace especial uso del atributo asignaturas en el que le pasan un String con las asignaturas obtenidas en el servlet anterior.
 
@@ -299,7 +299,7 @@ for (int i = 0; i < asignaturasJSON.length(); i++) {
 out.println("        <p><button type='submit' class='btn btn-link'>Seleccionar Asignatura</button></p>");
 out.println("    </form>");
 ```
-La implementación de esta funcionalidad como vemos en el código ha sido mediante un formulario y radioButtons, de tal manera que el profesor escoja una y solo una de las asignaturas. El atributo *required* impide continuar sin seleccionar asignaturas.
+La implementación de esta funcionalidad, como vemos en el código, ha sido mediante un formulario y radioButtons, de tal manera que el profesor escoja una y solo una de las asignaturas. El atributo *required* impide continuar sin seleccionar asignaturas.
 
 ## Menu de seleccion, alumnosDeAsig.java
 Este servlet se encarga de la selección del alumno a quien el profesor quiere modificar la nota en la asignatura seleccionada en el servlet anterior, el que lo invoca a este.
@@ -310,12 +310,12 @@ En este servlet se hace uso del atributo que le pasa el servlet invocante: **acr
 String acronimo = request.getParameter("opcionAsig");
 String dir = "http://" + milogin + ":9090/CentroEducativo/asignaturas/" + acronimo + "/alumnos" + "?key=" + key;
 HttpGet get = new HttpGet(dir);
-// EJECUTO LA SOLICITUD
+// EJECUCIÓN DE LA SOLICITUD
 final CloseableHttpResponse execute = cliente.execute(get);
 String alumnos;
 try {
     alumnos = EntityUtils.toString(execute.getEntity());
-    // COMPROBACION
+    // COMPROBACIÓN
     //PRUEBA Mostrar Datos del Profesor -> out.println(info);
     JSONArray alumnosJSON = new JSONArray(alumnos);
     ...
@@ -347,18 +347,18 @@ En este servlet, el profesor indicará la nota que quiere poner al alumno y pasa
 La obtención de la nota se hace con un input type number y se pasa al servlet definitivo en un formulario.
 
 ## Accion de cambio de nota, setNota.java
-Este servlet definitivo será quien construya la petición PUT encargada de acceder al nivel de Datos para modificar la nota al alumno.
+Este servlet definitivo será quien construya la petición PUT encargada de acceder al nivel de Datos para modificar la nota del alumno.
 
 ***
 
-# DOCUMENTACION
+# DOCUMENTACIÓN
 
 - Documentacion1 Apache: https://hc.apache.org/httpcomponents-client-5.1.x/index.html
 - Documentacion2 Apache: https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html
 
 - Documentacion XML: https://docs.oracle.com/cd/E13222_01/wls/docs81/webapp/web_xml.html
 
-- Ejemplos Apache de interes:
+- Ejemplos Apache de interés:
 
   https://github.com/apache/httpcomponents-client/blob/5.1.x/httpclient5/src/test/java/org/apache/hc/client5/http/examples/ClientFormLogin.java
   
@@ -384,14 +384,15 @@ Este servlet definitivo será quien construya la petición PUT encargada de acce
 
 # A TENER EN CUENTA
 
-- Export en formato .war, apache v.9, librerias en lib referenciadas y jdk v.11.
+- Export en formato .war, apache v.9, librerías en lib referenciadas y jdk v.11.
 
 - Habilitar usuarios de Centro Educativo en tomcat-users.xds.
 
-- Usar **apache-tomcat-9.0.72.tar** como target runtime.
+- Usar **apache-tomcat-9.0.72.tar** cómo target runtime.
 
 - Ejecutar en terminal para iniciar Centro Educativo:
 ```sh
 /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar es.upv.etsinf.ti.centroeducativo-0.2.0.jar
 ```
+
 
